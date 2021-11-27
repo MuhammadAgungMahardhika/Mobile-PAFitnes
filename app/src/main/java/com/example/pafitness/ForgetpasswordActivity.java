@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ForgetpasswordActivity extends AppCompatActivity {
@@ -14,15 +15,16 @@ public class ForgetpasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgetpassword);
 
-        TextView forgetPassword= (TextView) findViewById(R.id.textView9);
+        Button forgetPassword = (Button) findViewById(R.id.buttonForgetpassword);
 
         forgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(ForgetpasswordActivity.this, LoginActivity.class);
+                Intent intent2 = new Intent(ForgetpasswordActivity.this,ResetpasswordActivity.class);
                 ForgetpasswordActivity.this.startActivity(intent2);
 
             }
         });
+
     }
 }
