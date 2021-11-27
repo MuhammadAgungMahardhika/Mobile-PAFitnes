@@ -9,35 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PAFitness">
+        <activity
+            android:name=".ForgetpasswordActivity"
+            android:exported="true" />
         <activity android:name=".NotificationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity"/>
-
+                android:value=".HomeActivity" />
         </activity>
         <activity android:name=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity"/>
-
+                android:value=".LoginActivity" />
         </activity>
         <activity android:name=".GenderActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SignupActivity"/>
-
+                android:value=".SignupActivity" />
         </activity>
         <activity android:name=".SignupActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
-
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
-
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MainActivity"
