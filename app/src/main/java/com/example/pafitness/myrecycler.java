@@ -18,5 +18,6 @@ public class myrecycler {
             "Jln. Batang Arau C.1 Padang", "Rimbo Kaluang Padang Barat", "Jln. Adinegoro Batang Kabung Ganting, Koto Tangah",
             "Jln. Rawang Bandes Rawang Padang Selatan", "Jln. Bandar Purus Padang Pasir",
             "Jln. Padang Pasir Raya No. 29 Padang Barat", "Jln. Dr. Moh. Hatta Ketaping Pasir Ambacang"
+
     };
 }
