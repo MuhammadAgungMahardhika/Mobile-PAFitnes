@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-s
+
 public class GenderActivity extends AppCompatActivity {
 
     @Override
