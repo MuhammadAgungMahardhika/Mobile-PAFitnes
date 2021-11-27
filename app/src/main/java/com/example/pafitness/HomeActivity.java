@@ -3,6 +3,7 @@ package com.example.pafitness;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -23,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //Notification intent
         FloatingActionButton Notification = (FloatingActionButton) findViewById(R.id.buttonNotification);
 
         Notification.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +35,42 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+        //Home intent
+        ImageButton home = (ImageButton) findViewById(R.id.homeButton);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(HomeActivity.this,HomeActivity.class);
+                HomeActivity.this.startActivity(intent2);
+
+            }
+        });
+
+        //Arroundyou intent
+        ImageButton arroundYou = (ImageButton) findViewById(R.id.arroundYouButton);
+
+        arroundYou.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(HomeActivity.this,HomeActivity.class);
+                HomeActivity.this.startActivity(intent2);
+
+            }
+        });
+
+        //Profile intent
+        ImageButton profile = (ImageButton) findViewById(R.id.profileButton);
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(HomeActivity.this,ProfileActivity.class);
+                HomeActivity.this.startActivity(intent2);
+
+            }
+        });
+
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
