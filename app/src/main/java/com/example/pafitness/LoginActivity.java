@@ -2,7 +2,6 @@ package com.example.pafitness;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,17 +27,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-        TextView ForgetPassword= (TextView) findViewById(R.id.textView9);
-
-        ForgetPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(LoginActivity.this, ForgetpasswordActivity.class);
-                LoginActivity.this.startActivity(intent2);
-            }
-        });
-
         Button Home = (Button) findViewById(R.id.Login);
         EditText username = (EditText) findViewById(R.id.editUsername);
         EditText password = (EditText) findViewById(R.id.editPassword);

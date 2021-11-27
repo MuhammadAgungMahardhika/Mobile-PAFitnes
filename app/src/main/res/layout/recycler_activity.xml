@@ -17,12 +17,12 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/image_fitness"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
+                android:id="@+id/image_fitness"
+                android:src="@drawable/eden_fitness"
                 android:scaleType="fitCenter"
-                android:src="@drawable/a_fitness" />
+                android:adjustViewBounds="true"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
