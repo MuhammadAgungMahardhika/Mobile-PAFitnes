@@ -5,11 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
 public class HomeActivity extends AppCompatActivity {
 
+    RecyclerView recyclerView;
+    AdapterRecyclerView adapterRecyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    ArrayList<RecyclerModel> data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,5 +33,22 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(layoutManager);
+
+        data = new ArrayList<>();
+        for (int i = 0; i < myrecycler.namaTempat.length; i++){
+            data.add(new RecyclerModel(
+                    myrecycler.namaTempat[i],
+                    myrecycler.alamat[i],
+                    myrecycler.fitness[i]
+            ));
+        }
+        adapterRecyclerView = new AdapterRecyclerView(data);
+        recyclerView.setAdapter(adapterRecyclerView);
     }
 }
