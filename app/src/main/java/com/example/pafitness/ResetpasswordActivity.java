@@ -14,7 +14,7 @@ public class ResetpasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resetpassword);
 
-        Button ResetPassword= (Button) findViewById(R.id.buttonResetpassword;
+        Button ResetPassword= (Button) findViewById(R.id.buttonResetpassword);
 
         ResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
