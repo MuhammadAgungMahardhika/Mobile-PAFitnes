@@ -5,12 +5,24 @@ android:id="@+id/linearLayout5"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/gender2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Profile"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="78dp"
         android:layout_height="86dp"
         android:layout_marginStart="170dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="170dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
@@ -25,19 +37,6 @@ android:layout_height="match_parent">
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
-<TextView
-    android:id="@+id/Edit_profile"
-    android:layout_width="140dp"
-    android:layout_height="34dp"
-    android:text="Edit Profil"
-    android:textColor="@color/white"
-    android:textSize="24sp"
-    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-    app:layout_constraintEnd_toEndOf="@+id/imageView2"
-    app:layout_constraintHorizontal_bias="0.059"
-    app:layout_constraintStart_toStartOf="@+id/imageView2"
-    app:layout_constraintTop_toTopOf="@+id/imageView2"
-    app:layout_constraintVertical_bias="0.469" />
 
     <TextView
         android:id="@+id/editemail3"
@@ -88,21 +87,21 @@ android:layout_height="match_parent">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/Edit_fullname" />
 
-<TextView
-    android:id="@+id/Edit_mobile"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="30dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginEnd="30dp"
-    android:backgroundTint="#000000"
-    android:backgroundTintMode="src_in"
-    android:ems="10"
-    android:text="Mobile"
-    android:textAlignment="center"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/Edit_ID" />
+    <TextView
+        android:id="@+id/Edit_mobile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#000000"
+        android:backgroundTintMode="src_in"
+        android:ems="10"
+        android:text="Mobile Phone"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Edit_ID" />
 
     <TextView
         android:id="@+id/logout"
@@ -115,8 +114,10 @@ android:layout_height="match_parent">
         android:backgroundTintMode="src_in"
         android:clickable="true"
         android:ems="10"
+        android:minHeight="48dp"
         android:text="LogOut"
         android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,5 +1,6 @@
 package com.example.pafitness;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,15 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         text_alamat.setText(dataRecycler.get(position).getAddress());
         image_fitness.setImageResource(dataRecycler.get(position).getFitness());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(),ReviewActivity.class);
+                holder.itemView.getContext().startActivity(intent);
+
+            }
+        });
     }
 
     @Override
