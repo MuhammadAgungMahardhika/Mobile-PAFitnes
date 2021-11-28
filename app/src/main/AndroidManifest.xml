@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PAFitness">
-        <activity
-            android:name=".EditprofileActivity"
-            android:exported="true" />
+        <activity android:name=".EditprofileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ProfileActivity" />
+        </activity>
         <activity
             android:name=".ForgetpasswordActivity"
             android:exported="true" />
