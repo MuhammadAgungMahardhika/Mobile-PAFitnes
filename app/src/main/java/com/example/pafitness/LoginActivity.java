@@ -17,8 +17,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //sing up  intent
         TextView Signup2 = (TextView) findViewById(R.id.textView8);
-
         Signup2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,9 +27,24 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        //forget password intent
+        TextView forgetpassword = (TextView) findViewById(R.id.textView9);
+
+        forgetpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(LoginActivity.this, ForgetpasswordActivity.class);
+                LoginActivity.this.startActivity(intent2);
+
+            }
+        });
+
+        //Login intent
         Button Home = (Button) findViewById(R.id.Login);
         EditText username = (EditText) findViewById(R.id.editUsername);
         EditText password = (EditText) findViewById(R.id.editPassword);
+
         
         Home.setOnClickListener(new View.OnClickListener() {
             @Override
