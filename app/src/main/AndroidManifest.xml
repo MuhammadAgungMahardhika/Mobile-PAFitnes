@@ -9,6 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PAFitness">
+        <activity
+            android:name=".ResetpasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".NewpasswordActivity"
+            android:exported="true" />
         <activity android:name=".EditprofileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -25,11 +31,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
         </activity>
-        <activity android:name=".HomeActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity" />
-        </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true" />
         <activity android:name=".GenderActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
