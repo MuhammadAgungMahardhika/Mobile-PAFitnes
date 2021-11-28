@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
         import android.widget.ImageButton;
+        import android.widget.TextView;
 
         import androidx.appcompat.app.AppCompatActivity;
 
@@ -59,6 +60,16 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent2 = new Intent(ProfileActivity.this,EditprofileActivity.class);
+                ProfileActivity.this.startActivity(intent2);
+
+            }
+        });
+        //LogOut
+        TextView LogOut = (TextView) findViewById(R.id.logout);
+        LogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(ProfileActivity.this, LoginActivity.class);
                 ProfileActivity.this.startActivity(intent2);
 
             }
