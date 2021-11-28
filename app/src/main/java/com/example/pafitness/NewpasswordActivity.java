@@ -20,7 +20,7 @@ public class NewpasswordActivity extends AppCompatActivity {
         NewPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NewpasswordActivity.this,ForgetpasswordActivity.class);
+                Intent intent = new Intent(NewpasswordActivity.this,LoginActivity.class);
                 NewpasswordActivity.this.startActivity(intent);
 
             }
