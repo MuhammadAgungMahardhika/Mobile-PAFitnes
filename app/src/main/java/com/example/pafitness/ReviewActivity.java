@@ -1,8 +1,8 @@
 package com.example.pafitness;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
 
 public class ReviewActivity extends AppCompatActivity {
 
