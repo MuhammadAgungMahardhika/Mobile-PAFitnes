@@ -22,16 +22,20 @@
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/PAFitness/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/PAFitness/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2203125" />
         <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_editprofile.xml" value="0.2" />
-        <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_forgetpassword.xml" value="1.0" />
+        <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_forgetpassword.xml" value="0.2" />
         <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_gender.xml" value="0.1015625" />
         <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_home.xml" value="0.14" />
         <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_main.xml" value="0.1015625" />
+        <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_newpass.xml" value="0.1015625" />
         <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_newpassword.xml" value="0.14" />
         <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_notification.xml" value="0.1015625" />
         <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_profil.xml" value="0.10625" />
         <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_profile.xml" value="0.21" />
+        <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_resetpass.xml" value="0.1" />
         <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_resetpassword.xml" value="0.16" />
+        <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/activity_review.xml" value="0.1" />
+        <entry key="..\:/Users/Windows 10 Pro/Documents/pemograman teknologi bergerak/PAFitness/app/src/main/res/layout/recycler_activity.xml" value="0.1" />
       </map>
     </option>
   </component>

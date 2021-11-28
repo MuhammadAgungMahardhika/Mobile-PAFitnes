@@ -14,14 +14,13 @@ public class ForgetpasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgetpassword);
 
-        Button forgetPassword= (Button) findViewById(R.id.button);
+        Button forgetPassword= (Button)findViewById(R.id.Login);
 
         forgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(ForgetpasswordActivity.this, ResetpasswordActivity.class);
+                Intent intent2 = new Intent(ForgetpasswordActivity.this,ResetpassActivity.class);
                 ForgetpasswordActivity.this.startActivity(intent2);
-
             }
         });
     }
