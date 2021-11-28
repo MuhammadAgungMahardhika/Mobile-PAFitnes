@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PAFitness">
         <activity
+            android:name=".ResetpasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".NewpasswordActivity"
+            android:exported="true" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="true" />
         <activity
