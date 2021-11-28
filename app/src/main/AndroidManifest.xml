@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PAFitness">
         <activity
+            android:name=".EditprofileActivity"
+            android:exported="true" />
+        <activity
             android:name=".ForgetpasswordActivity"
             android:exported="true" />
         <activity
