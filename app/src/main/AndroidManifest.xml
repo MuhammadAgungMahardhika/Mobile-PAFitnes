@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PAFitness">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".ForgetpasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".ForgetpasswordActivity"
+            android:name=".ProfileActivity"
             android:exported="true" />
         <activity android:name=".NotificationActivity">
             <meta-data
