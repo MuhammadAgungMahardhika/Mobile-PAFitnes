@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         arroundYou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(HomeActivity.this,HomeActivity.class);
+                Intent intent2 = new Intent(HomeActivity.this,ProfileActivity.class);
                 HomeActivity.this.startActivity(intent2);
 
             }
