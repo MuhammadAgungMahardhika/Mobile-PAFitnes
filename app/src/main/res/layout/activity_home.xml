@@ -38,6 +38,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="19dp"
         android:clickable="true"
+        android:focusable="true"
         app:backgroundTint="#E6DCDC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
