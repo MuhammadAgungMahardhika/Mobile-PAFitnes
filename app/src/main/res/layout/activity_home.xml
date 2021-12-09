@@ -5,8 +5,8 @@
     android:id="@+id/linearLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6DCDC"
-    android:backgroundTint="#E6DCDC">
+    android:background="#FBFAFA"
+    android:backgroundTint="#FBFAFA">
 
     <TextView
         android:id="@+id/textView2"
@@ -32,20 +32,26 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonNotification"
-        android:layout_width="52dp"
-        android:layout_height="38dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="19dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#FBFAFA"
         android:clickable="true"
-        android:focusable="true"
-        app:backgroundTint="#E6DCDC"
+        android:focusable="auto"
+        android:visibility="visible"
+        app:backgroundTint="#FBFAFA"
+        app:fabSize="auto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_popup_reminder"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:maxImageSize="24dp"
+        app:rippleColor="#121111"
+        app:srcCompat="@drawable/notification"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/linearLayout8"
@@ -63,10 +69,10 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/recycler_activity"
+            android:background="#FAF7F7"
 
 
-            />
+            tools:listitem="@layout/recycler_activity" />
 
     </LinearLayout>
 
@@ -84,6 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:backgroundTint="#F8F7F7"
             android:contentDescription="TODO"
             app:srcCompat="@drawable/home" />
 
@@ -92,6 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:backgroundTint="#FDFCFC"
             android:contentDescription="TODO"
             app:srcCompat="@drawable/f5b2dab29c" />
 
@@ -100,6 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:backgroundTint="#FDFCFC"
             android:contentDescription="TODO"
             app:srcCompat="@drawable/user2" />
     </LinearLayout>
