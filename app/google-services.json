@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "808153807338",
+    "project_id": "pafitnes",
+    "storage_bucket": "pafitnes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808153807338:android:1d4dfe624c468b3237da93",
+        "android_client_info": {
+          "package_name": "com.example.pafitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808153807338-tl1i50619jpvfu7ucq1r3slbntajbjjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR9gFWFBGGDE3hhBPBwl5Snsf4tpId1qc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808153807338-tl1i50619jpvfu7ucq1r3slbntajbjjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
