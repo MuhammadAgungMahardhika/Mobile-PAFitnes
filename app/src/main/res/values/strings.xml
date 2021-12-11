@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PAFitness</string>
+    <string name="title_activity_arround">ArroundActivity</string>
 </resources>

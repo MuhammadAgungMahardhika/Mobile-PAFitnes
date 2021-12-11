@@ -66,7 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
         arroundYou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(ProfileActivity.this,HomeActivity.class);
+                Intent intent2 = new Intent(ProfileActivity.this,ArroundActivity.class);
                 ProfileActivity.this.startActivity(intent2);
 
             }

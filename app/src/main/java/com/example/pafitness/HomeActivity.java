@@ -14,6 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
+
     RecyclerView recyclerView;
     AdapterRecyclerView adapterRecyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -52,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         arroundYou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(HomeActivity.this,ProfileActivity.class);
+                Intent intent2 = new Intent(HomeActivity.this,ArroundActivity.class);
                 HomeActivity.this.startActivity(intent2);
 
             }
