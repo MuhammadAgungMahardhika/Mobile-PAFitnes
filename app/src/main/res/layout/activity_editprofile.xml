@@ -45,7 +45,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="#3A0505"
         android:backgroundTintMode="src_in"
@@ -76,7 +76,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="#000000"
         android:backgroundTintMode="src_in"
@@ -93,7 +93,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="#000000"
         android:backgroundTintMode="src_in"
@@ -105,27 +105,11 @@
         app:layout_constraintTop_toBottomOf="@+id/Pass_01" />
 
     <EditText
-        android:id="@+id/Edit_ID"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="#000000"
-        android:backgroundTintMode="src_in"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="ID"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Edit_fullname" />
-
-    <EditText
         android:id="@+id/Edit_mobile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="#000000"
         android:backgroundTintMode="src_in"
@@ -134,19 +118,18 @@
         android:text="Mobile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Edit_ID" />
+        app:layout_constraintTop_toBottomOf="@+id/Edit_fullname" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="40dp"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Edit_mobile" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
