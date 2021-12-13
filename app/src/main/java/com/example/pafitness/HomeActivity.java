@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -19,11 +20,22 @@ public class HomeActivity extends AppCompatActivity {
     AdapterRecyclerView adapterRecyclerView;
     RecyclerView.LayoutManager layoutManager;
     ArrayList<RecyclerModel> data;
+    FirebaseAuth mAuth;
+    String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
+        //cek user login atau tidak
+        mAuth = FirebaseAuth.getInstance();
+
+        userId = mAuth.getCurrentUser().getUid();
+        if (userId.isEmpty()){
+            startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                finish();
+        }
         //Notification intent
         FloatingActionButton Notification = (FloatingActionButton) findViewById(R.id.buttonNotification);
 

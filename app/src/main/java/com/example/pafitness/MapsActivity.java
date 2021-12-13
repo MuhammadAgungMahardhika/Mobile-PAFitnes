@@ -14,16 +14,27 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.pafitness.databinding.ActivityMapsBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
 
+    FirebaseAuth mAuth;
+    String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //cek user login atau tidak
+        mAuth = FirebaseAuth.getInstance();
+
+        userId = mAuth.getCurrentUser().getUid();
+        if (userId.isEmpty()){
+            startActivity(new Intent(MapsActivity.this, LoginActivity.class));
+            finish();
+        }
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
