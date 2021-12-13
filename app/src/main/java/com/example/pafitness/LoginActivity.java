@@ -98,7 +98,6 @@ public class LoginActivity extends AppCompatActivity {
                     // If sign in fails, display a message to the user.
                     Toast.makeText(LoginActivity.this, "Login failed, please check your email and password again!",
                             Toast.LENGTH_SHORT).show();
-
                 }
 
                 // ...

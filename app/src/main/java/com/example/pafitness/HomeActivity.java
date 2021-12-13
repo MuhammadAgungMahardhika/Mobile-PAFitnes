@@ -35,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
         if (userId.isEmpty()){
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
                 finish();
+
         }
         //Notification intent
         FloatingActionButton Notification = (FloatingActionButton) findViewById(R.id.buttonNotification);
