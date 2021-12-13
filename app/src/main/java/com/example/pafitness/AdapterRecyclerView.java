@@ -42,20 +42,21 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
 
     @Override
     public void onBindViewHolder(@NonNull AdapterRecyclerView.ViewHolder holder, int position) {
-
+        final RecyclerModel data = dataRecycler.get(position);
         TextView text_judul = holder.textJudul;
         TextView text_alamat = holder.textAlamat;
         ImageView image_fitness = holder.fotofitness;
 
-        text_judul.setText(dataRecycler.get(position).getName());
-        text_alamat.setText(dataRecycler.get(position).getAddress());
-        image_fitness.setImageResource(dataRecycler.get(position).getFitness());
+        text_judul.setText(data.getName());
+        text_alamat.setText(data.getAddress());
+        image_fitness.setImageResource(data.getFitness());
 
         holder.itemView.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(holder.itemView.getContext(),ReviewActivity.class);
+                Intent intent = new Intent(holder.itemView.getContext(),DetailActivity.class);
+                intent.putExtra("RecyclerModel", data);
                 holder.itemView.getContext().startActivity(intent);
 
             }
