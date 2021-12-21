@@ -16,19 +16,6 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
 
     ArrayList<RecyclerModel> dataRecycler;
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textJudul;
-        TextView textAlamat;
-        ImageView fotofitness;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            textJudul = itemView.findViewById(R.id.text_judul);
-            textAlamat = itemView.findViewById(R.id.text_alamat);
-            fotofitness = itemView.findViewById(R.id.image_fitness);
-        }
-    }
     AdapterRecyclerView(ArrayList<RecyclerModel> data){
         this.dataRecycler = data;
     }
@@ -66,6 +53,20 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     @Override
     public int getItemCount() {
         return dataRecycler.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView textJudul;
+        TextView textAlamat;
+        ImageView fotofitness;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            textJudul = itemView.findViewById(R.id.text_judul);
+            textAlamat = itemView.findViewById(R.id.text_alamat);
+            fotofitness = itemView.findViewById(R.id.image_fitness);
+        }
     }
 
 

@@ -104,7 +104,7 @@ public class MapsActivity extends FragmentActivity {
                             LatLng latlng = new LatLng(location.getLatitude(), location.getLongitude());
                             MarkerOptions options = new MarkerOptions().position(latlng).title("Your Location");
 
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 10));
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 11));
                             googleMap.addMarker(options);
                         }
                     });

@@ -1,10 +1,12 @@
 package com.example.pafitness.Rest;
 
+import com.example.pafitness.Config.ServerConfig;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = ServerConfig.API_ENDPOINT;
     private static Retrofit retrofit = null;
     public static Retrofit getClient(){
         if (retrofit==null){
