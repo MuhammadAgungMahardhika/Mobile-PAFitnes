@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#F6F3F3">
+    android:layout_height="match_parent"
+    android:background="#C5B9B9">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -11,26 +11,34 @@
         android:layout_gravity="center"
         android:layout_margin="8dp"
         app:cardCornerRadius="5dp"
-        app:cardElevation="3dp">
+        app:cardElevation="0dp">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/image_fitness"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="7dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/eden_fitness" />
+                android:src="@drawable/eden_fitness"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/image_fitness"
                 android:orientation="vertical"
-                android:padding="8dp">
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_fitness">
 
                 <TextView
                     android:id="@+id/text_judul"
@@ -52,12 +60,14 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="15px"
                     android:text="Facility : " />
+
                 <TextView
                     android:id="@+id/text_fasilitas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="50px"
                     android:text="Fasilitas" />
+
                 <TextView
                     android:id="@+id/text_harga_perbulan"
                     android:layout_width="match_parent"
@@ -69,12 +79,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="081373517899" />
+
                 <TextView
                     android:id="@+id/text_jam_buka"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="09:00 - 21:00" />
-
 
                 <Button
                     android:id="@+id/button2"
@@ -84,7 +94,8 @@
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.cardview.widget.CardView>
 

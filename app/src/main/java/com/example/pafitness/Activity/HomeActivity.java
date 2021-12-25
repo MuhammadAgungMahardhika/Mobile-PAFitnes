@@ -43,16 +43,16 @@ public class HomeActivity extends AppCompatActivity {
 
 
         //Notification intent
-        FloatingActionButton Notification = (FloatingActionButton) findViewById(R.id.buttonNotification);
-
-        Notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(HomeActivity.this,NotificationActivity.class);
-                HomeActivity.this.startActivity(intent2);
-
-            }
-        });
+//        FloatingActionButton Notification = (FloatingActionButton) findViewById(R.id.buttonNotification);
+//
+//        Notification.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent2 = new Intent(HomeActivity.this,NotificationActivity.class);
+//                HomeActivity.this.startActivity(intent2);
+//
+//            }
+//        });
         //Home intent
         ImageButton home = (ImageButton) findViewById(R.id.homeButton);
 

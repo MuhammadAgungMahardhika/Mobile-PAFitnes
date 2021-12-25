@@ -14,7 +14,7 @@ import com.example.pafitness.R;
 
 public class DetailActivity extends AppCompatActivity {
 
-    TextView nama_fitnes , alamat_fitnes , fasilitas , jam_buka , harga_perbulan;
+    TextView nama_fitnes , alamat_fitnes , fasilitas  , harga_perbulan,no_fitnes, jam_buka ;
     ImageView gambar_fitnes;
 
 
@@ -28,6 +28,7 @@ public class DetailActivity extends AppCompatActivity {
         alamat_fitnes = findViewById(R.id.text_alamat);
         fasilitas = findViewById(R.id.text_fasilitas);
         harga_perbulan = findViewById(R.id.text_harga_perbulan);
+        no_fitnes = findViewById(R.id.text_no_fitnes);
         jam_buka = findViewById(R.id.text_jam_buka);
 
 
@@ -36,9 +37,19 @@ public class DetailActivity extends AppCompatActivity {
         GetFitnes model = getIntent().getParcelableExtra("GetFitnes");
         String gambar_fitness = model.getGambarFitnes();
 
+        //convert harga perbulan to string
+        Integer harga_tukar = model.getHargaPerbulan();
+        String harga_perbulan_string =  harga_tukar.toString();
+
+        //convert no fitnes
+        Integer no_tukar = model.getNoFitnes();
+        String no_fitnes_string = no_tukar.toString();
+
         nama_fitnes.setText(model.getNamaFitnes());
         alamat_fitnes.setText( model.getAlamatFitnes());
         fasilitas.setText(model.getFasilitas());
+        harga_perbulan.setText(harga_perbulan_string);
+        no_fitnes.setText(no_fitnes_string);
         jam_buka.setText("Jam operasi : "+model.getJamBuka());
 
 

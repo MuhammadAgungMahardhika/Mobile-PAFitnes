@@ -22,29 +22,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/buttonNotification"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="19dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#FBFAFA"
-        android:clickable="true"
-        android:contentDescription="TODO"
-        android:focusable="auto"
-        android:visibility="visible"
-        app:backgroundTint="#FBFAFA"
-        app:fabSize="auto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:maxImageSize="24dp"
-        app:rippleColor="#121111"
-        tools:ignore="SpeakableTextPresentCheck"
-        tools:visibility="visible" />
-
     <LinearLayout
         android:id="@+id/linearLayout8"
         android:layout_width="0dp"
