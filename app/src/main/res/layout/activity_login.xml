@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:paddingTop="100dp"
-    tools:context=".LoginActivity">
+    tools:context=".Activity.LoginActivity">
 
     <EditText
         android:id="@+id/editUsername"

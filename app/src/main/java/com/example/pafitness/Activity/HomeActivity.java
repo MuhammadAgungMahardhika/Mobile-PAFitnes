@@ -1,26 +1,39 @@
-package com.example.pafitness;
+package com.example.pafitness.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pafitness.Adapter.Adapter;
+import com.example.pafitness.Model.GetFitnes;
+import com.example.pafitness.R;
+import com.example.pafitness.Rest.ApiClient;
+import com.example.pafitness.Rest.ApiInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    AdapterRecyclerView adapterRecyclerView;
+    Adapter adapter;
+    private SearchView searchView;
     RecyclerView.LayoutManager layoutManager;
-    ArrayList<RecyclerModel> data;
+    ArrayList<GetFitnes> fitnes;
     FirebaseAuth mAuth;
     String userId;
     @Override
@@ -29,15 +42,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-        //cek user login atau tidak
-        mAuth = FirebaseAuth.getInstance();
-
-        userId = mAuth.getCurrentUser().getUid();
-        if (userId.isEmpty()){
-            startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-                finish();
-
-        }
         //Notification intent
         FloatingActionButton Notification = (FloatingActionButton) findViewById(R.id.buttonNotification);
 
@@ -85,23 +89,49 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //Retrofit Recycler View
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
+        callRetrofit();
 
-        data = new ArrayList<>();
-        for (int i = 0; i < myrecycler.namaTempat.length; i++){
-            data.add(new RecyclerModel(
-                    myrecycler.namaTempat[i],
-                    myrecycler.alamat[i],
-                    myrecycler.fitness[i]
-            ));
-        }
-        adapterRecyclerView = new AdapterRecyclerView(data);
-        recyclerView.setAdapter(adapterRecyclerView);
+
+    }
+
+    //menghubungi server
+    private void callRetrofit() {
+        //membuat object retrofit
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+
+        Call<List<GetFitnes>> call = apiInterface.getFitnes();
+
+        call.enqueue(new Callback<List<GetFitnes>>() {
+            @Override
+            public void onResponse(Call<List<GetFitnes>> call, Response<List<GetFitnes>> response) {
+
+                if (response.isSuccessful()){
+                    List<GetFitnes> get = response.body();
+                    adapter = new Adapter(HomeActivity.this, get);
+                    recyclerView.setAdapter(adapter);
+
+                    return;
+
+                }else{
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<GetFitnes>> call, Throwable t) {
+
+            }
+
+
+        });
+
     }
 
     @Override

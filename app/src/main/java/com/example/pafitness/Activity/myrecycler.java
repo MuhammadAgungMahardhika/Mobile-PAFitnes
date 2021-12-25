@@ -1,4 +1,6 @@
-package com.example.pafitness;
+package com.example.pafitness.Activity;
+
+import com.example.pafitness.R;
 
 public class myrecycler {
 

@@ -43,7 +43,38 @@
                     android:id="@+id/text_alamat"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+
                     android:text="Jln. S Parman No. 167" />
+
+                <TextView
+                    android:id="@+id/template_fasilitas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15px"
+                    android:text="Facility : " />
+                <TextView
+                    android:id="@+id/text_fasilitas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="50px"
+                    android:text="Fasilitas" />
+                <TextView
+                    android:id="@+id/text_harga_perbulan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="100000" />
+
+                <TextView
+                    android:id="@+id/text_no_fitnes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="081373517899" />
+                <TextView
+                    android:id="@+id/text_jam_buka"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="09:00 - 21:00" />
+
 
                 <Button
                     android:id="@+id/button2"

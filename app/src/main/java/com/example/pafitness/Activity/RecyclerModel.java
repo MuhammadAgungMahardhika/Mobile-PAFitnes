@@ -1,14 +1,14 @@
-package com.example.pafitness;
+package com.example.pafitness.Activity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class RecyclerModel implements Parcelable {
 
-    String name, address;
-    int fitness;
+    String name, address ;
+    Integer fitness;
 
-    public RecyclerModel(String name, String address, int fitness) {
+    public RecyclerModel(String name, String address, Integer fitness) {
         this.name = name;
         this.address = address;
         this.fitness = fitness;
