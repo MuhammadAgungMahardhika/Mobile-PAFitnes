@@ -24,7 +24,7 @@
                 android:padding="5px"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/eden_fitnesss" />
+                android:src="@drawable/eden_fitness" />
 
             <LinearLayout
                 android:layout_width="match_parent"

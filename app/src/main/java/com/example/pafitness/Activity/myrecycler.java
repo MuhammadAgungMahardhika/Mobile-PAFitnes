@@ -5,8 +5,8 @@ import com.example.pafitness.R;
 public class myrecycler {
 
     static int[] fitness = {
-            R.drawable.eden_fitnesss, R.drawable.fitnes_gold, R.drawable.g_sport_fitness,
-            R.drawable.valiant_fitness, R.drawable.glow_gym, R.drawable.eragon_gym, R.drawable.garuda_gym,
+            R.drawable.eden_fitness, R.drawable.fitnes_gold, R.drawable.g_sport_fitness,
+            R.drawable.valiant_fitness, R.drawable.glows_gym, R.drawable.eragons_gym, R.drawable.garuda_gym,
             R.drawable.internasional_gym, R.drawable.golds_gym , R.drawable.ozone_gym
     };
 
