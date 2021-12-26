@@ -48,9 +48,9 @@ public class DetailActivity extends AppCompatActivity {
         nama_fitnes.setText(model.getNamaFitnes());
         alamat_fitnes.setText( model.getAlamatFitnes());
         fasilitas.setText(model.getFasilitas());
-        harga_perbulan.setText(harga_perbulan_string);
-        no_fitnes.setText(no_fitnes_string);
-        jam_buka.setText("Jam operasi : "+model.getJamBuka());
+        harga_perbulan.setText("Price/Month -> Rp."+harga_perbulan_string);
+        no_fitnes.setText("Contact Person -> +62 "+no_fitnes_string);
+        jam_buka.setText("Operational time -> "+model.getJamBuka());
 
 
         Glide.with(this)

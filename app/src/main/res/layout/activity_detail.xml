@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C5B9B9">
+    android:background="#FF9800">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
+        android:layout_margin="1dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="0dp">
 
@@ -21,7 +21,6 @@
                 android:id="@+id/image_fitness"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="7dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/eden_fitness"
@@ -29,70 +28,105 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
+
+            <TextView
+                android:id="@+id/text_judul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/image_fitness"
-                android:orientation="vertical"
-                android:padding="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="A Fitness"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_fitness">
+                app:layout_constraintTop_toBottomOf="@id/image_fitness" />
 
-                <TextView
-                    android:id="@+id/text_judul"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="A Fitness"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <TextView
+                android:id="@+id/text_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="Jln. S Parman No. 167"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_judul" />
 
-                <TextView
-                    android:id="@+id/text_alamat"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+            <TextView
+                android:id="@+id/template_fasilitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:text="Facility : "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_alamat" />
 
-                    android:text="Jln. S Parman No. 167" />
+            <TextView
+                android:id="@+id/text_fasilitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="Fasilitas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/template_fasilitas" />
 
-                <TextView
-                    android:id="@+id/template_fasilitas"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15px"
-                    android:text="Facility : " />
+            <TextView
+                android:id="@+id/text_harga_perbulan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="100000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_fasilitas" />
 
-                <TextView
-                    android:id="@+id/text_fasilitas"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="50px"
-                    android:text="Fasilitas" />
+            <TextView
+                android:id="@+id/text_no_fitnes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="081373517899"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_harga_perbulan" />
 
-                <TextView
-                    android:id="@+id/text_harga_perbulan"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="100000" />
+            <TextView
+                android:id="@+id/text_jam_buka"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="09:00 - 21:00"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_no_fitnes" />
 
-                <TextView
-                    android:id="@+id/text_no_fitnes"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="081373517899" />
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Book now"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-                <TextView
-                    android:id="@+id/text_jam_buka"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="09:00 - 21:00" />
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Book now" />
-
-            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
