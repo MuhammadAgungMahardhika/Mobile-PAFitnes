@@ -3,12 +3,15 @@ package com.example.pafitness.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.ButtonBarLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,23 +41,17 @@ public class HomeActivity extends AppCompatActivity {
     ArrayList<GetFitnes> fitnes;
     FirebaseAuth mAuth;
     String userId;
+     ProgressBar pb;
+     int counter = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //set progres bar
+        probar();
 
-        //Notification intent
-//        FloatingActionButton Notification = (FloatingActionButton) findViewById(R.id.buttonNotification);
-//
-//        Notification.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent2 = new Intent(HomeActivity.this,NotificationActivity.class);
-//                HomeActivity.this.startActivity(intent2);
-//
-//            }
-//        });
+
         //Home intent
         ImageButton home = (ImageButton) findViewById(R.id.homeButton);
 
@@ -101,6 +100,25 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    private void probar() {
+        pb = (ProgressBar) findViewById(R.id.pb);
+
+        final Timer t = new Timer();
+        TimerTask tt = new TimerTask() {
+            @Override
+            public void run() {
+                counter++;
+                pb.setProgress(counter);
+                if (counter==100)
+                    t.cancel();
+
+
+
+            }
+        };
+        t.schedule(tt,0,100);
+    }
+
     //menghubungi server
     private void callRetrofit() {
         //membuat object retrofit
@@ -137,6 +155,25 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
+//        SearchView = (SearchView) menu.findItem(R.id.search);
+//
+
         return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.buttonNotification:
+                Intent intent2 = new Intent(HomeActivity.this,NotificationActivity.class);
+                HomeActivity.this.startActivity(intent2);
+                return true;
+            case R.id.search:
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
