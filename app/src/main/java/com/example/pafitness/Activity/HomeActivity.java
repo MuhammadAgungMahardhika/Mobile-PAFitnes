@@ -51,7 +51,6 @@ public class HomeActivity extends AppCompatActivity {
         //set progres bar
         probar();
 
-
         //Home intent
         ImageButton home = (ImageButton) findViewById(R.id.homeButton);
 
@@ -152,12 +151,11 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+
+// MENU HOME
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
-//        SearchView = (SearchView) menu.findItem(R.id.search);
-//
-
         return super.onCreateOptionsMenu(menu);
     }
     @Override

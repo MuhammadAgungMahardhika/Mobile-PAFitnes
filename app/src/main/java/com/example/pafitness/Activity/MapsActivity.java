@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.pafitness.Model.GetFitnes;
 import com.example.pafitness.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -25,12 +26,15 @@ import com.example.pafitness.databinding.ActivityMapsBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import java.util.ArrayList;
+
 public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private SupportMapFragment mapFragment;
     private FusedLocationProviderClient client;
+    ArrayList<GetFitnes> fitnes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,8 +108,15 @@ public class MapsActivity extends FragmentActivity {
                             LatLng latlng = new LatLng(location.getLatitude(), location.getLongitude());
                             MarkerOptions options = new MarkerOptions().position(latlng).title("Your Location");
 
+                            LatLng sydney = new LatLng(-33.852, 151.211);
+                            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 11));
                             googleMap.addMarker(options);
+
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 11));
+                            googleMap.addMarker(options);
+
                         }
                     });
                 }
