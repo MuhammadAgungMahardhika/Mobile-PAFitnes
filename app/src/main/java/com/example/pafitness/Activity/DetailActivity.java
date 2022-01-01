@@ -26,7 +26,7 @@ public class DetailActivity extends AppCompatActivity {
 
     TextView nama_fitnes , alamat_fitnes , fasilitas  , harga_perbulan,no_fitnes, jam_buka ;
     ImageView gambar_fitnes;
-    public TextView tanggal;
+//    public TextView tanggal;
     private Spinner spBulan;
 
 
@@ -47,7 +47,7 @@ public class DetailActivity extends AppCompatActivity {
         gambar_fitnes = findViewById(R.id.image_fitness);
 
 
-       tanggal = findViewById(R.id.tanggal);
+//       tanggal = findViewById(R.id.tanggal);
 
 
         GetFitnes model = getIntent().getParcelableExtra("GetFitnes");
@@ -69,6 +69,7 @@ public class DetailActivity extends AppCompatActivity {
         jam_buka.setText("Operational time -> "+model.getJamBuka());
 
 
+
         Glide.with(this)
                 .load(gambar_fitness)
                 .into(gambar_fitnes);
@@ -83,11 +84,15 @@ public class DetailActivity extends AppCompatActivity {
         });
 
     }
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
 
-    }
+
+//    public void showDatePickerDialog(View v) {
+//        DialogFragment newFragment = new DatePickerFragment();
+//        newFragment.show(getSupportFragmentManager(), "datePicker");
+//
+//
+//
+//    }
 
 
 }

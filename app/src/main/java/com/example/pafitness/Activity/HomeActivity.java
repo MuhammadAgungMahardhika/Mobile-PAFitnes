@@ -8,10 +8,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
-import android.widget.Toast;
+
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.ButtonBarLayout;
+
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,10 +20,10 @@ import com.example.pafitness.Model.GetFitnes;
 import com.example.pafitness.R;
 import com.example.pafitness.Rest.ApiClient;
 import com.example.pafitness.Rest.ApiInterface;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.ArrayList;
+
+
+
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,9 +38,6 @@ public class HomeActivity extends AppCompatActivity {
     Adapter adapter;
     private SearchView searchView;
     RecyclerView.LayoutManager layoutManager;
-    ArrayList<GetFitnes> fitnes;
-    FirebaseAuth mAuth;
-    String userId;
      ProgressBar pb;
      int counter = 0;
     @Override
@@ -52,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         probar();
 
         //Home intent
-        ImageButton home = (ImageButton) findViewById(R.id.homeButton);
+        ImageButton home = findViewById(R.id.homeButton);
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
