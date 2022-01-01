@@ -2,4 +2,32 @@
     <string name="app_name">PAFitness</string>
     <string name="title_activity_arround">ArroundActivity</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string-array name="bulan">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+<!--    <string-array name="tanggal">-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--        <item>4</item>-->
+<!--        <item>5</item>-->
+<!--        <item>6</item>-->
+<!--        <item>7</item>-->
+<!--        <item>8</item>-->
+<!--        <item>9</item>-->
+<!--        <item>10</item>-->
+<!--        <item>10</item>-->
+<!--        <item>11</item>-->
+<!--    </string-array>-->
 </resources>

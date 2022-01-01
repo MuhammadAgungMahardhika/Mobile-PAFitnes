@@ -90,11 +90,9 @@
 
     <TextView
         android:id="@+id/logout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
         android:backgroundTint="#000000"
         android:backgroundTintMode="src_in"
         android:clickable="true"
@@ -104,7 +102,6 @@
         android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Edit_mobile" />
 
@@ -136,7 +133,7 @@
             android:layout_weight="1"
             android:backgroundTint="#FBFBFB"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/home" />
+            app:srcCompat="@drawable/ic_outline_home_24" />
 
         <ImageButton
             android:id="@+id/arroundYouButton"
@@ -145,7 +142,7 @@
             android:layout_weight="1"
             android:backgroundTint="#FDFCFC"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/f5b2dab29c" />
+            app:srcCompat="@drawable/ic_outline_location_on_24" />
 
         <ImageButton
             android:id="@+id/profileButton"
@@ -154,6 +151,6 @@
             android:layout_weight="1"
             android:backgroundTint="#FFFEFE"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/user2" />
+            app:srcCompat="@drawable/ic_outline_account_circle_24" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

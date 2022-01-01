@@ -1,22 +1,33 @@
 package com.example.pafitness.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.pafitness.Model.GetFitnes;
 import com.example.pafitness.R;
 
+import java.util.Calendar;
+
 public class DetailActivity extends AppCompatActivity {
 
     TextView nama_fitnes , alamat_fitnes , fasilitas  , harga_perbulan,no_fitnes, jam_buka ;
     ImageView gambar_fitnes;
-
+    public TextView tanggal;
+    private Spinner spBulan;
 
 
     @Override
@@ -31,8 +42,13 @@ public class DetailActivity extends AppCompatActivity {
         no_fitnes = findViewById(R.id.text_no_fitnes);
         jam_buka = findViewById(R.id.text_jam_buka);
 
+        spBulan = findViewById(R.id.sp_bulan);
 
         gambar_fitnes = findViewById(R.id.image_fitness);
+
+
+       tanggal = findViewById(R.id.tanggal);
+
 
         GetFitnes model = getIntent().getParcelableExtra("GetFitnes");
         String gambar_fitness = model.getGambarFitnes();
@@ -57,7 +73,21 @@ public class DetailActivity extends AppCompatActivity {
                 .load(gambar_fitness)
                 .into(gambar_fitnes);
 
+        Button btBook = (Button) findViewById(R.id.button_book);
+        btBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Toast.makeText(DetailActivity.this, "Selected "+ spBulan.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+
+    }
+
+
 }

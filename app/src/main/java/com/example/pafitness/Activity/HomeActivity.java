@@ -169,6 +169,11 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.search:
 
                 return true;
+            case R.id.button_class:
+                Intent intent3 = new Intent(HomeActivity.this,NotificationActivity.class);
+                HomeActivity.this.startActivity(intent3);
+
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);

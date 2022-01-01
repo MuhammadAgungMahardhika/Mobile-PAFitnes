@@ -2,6 +2,8 @@ package com.example.pafitness.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -106,6 +108,34 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    // MENU HOME
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu2, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.buttonNotification:
+                Intent intent2 = new Intent(ProfileActivity.this,NotificationActivity.class);
+                ProfileActivity.this.startActivity(intent2);
+                return true;
+            case R.id.search:
+
+                return true;
+            case R.id.button_class:
+                Intent intent3 = new Intent(ProfileActivity.this,NotificationActivity.class);
+                ProfileActivity.this.startActivity(intent3);
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

@@ -12,8 +12,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.pafitness.Adapter.Adapter;
 import com.example.pafitness.Model.GetFitnes;
 import com.example.pafitness.R;
+import com.example.pafitness.Rest.ApiClient;
+import com.example.pafitness.Rest.ApiInterface;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -27,6 +30,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MapsActivity extends FragmentActivity {
 
@@ -49,6 +57,7 @@ public class MapsActivity extends FragmentActivity {
         //cek permission
         if (ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             getCurrentLocation();
+//            getMap();
         } else {
             ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
 
@@ -91,6 +100,39 @@ public class MapsActivity extends FragmentActivity {
             }
         });
     }
+
+//    private void getMap() {
+//
+//            //membuat object retrofit
+//            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+//
+//            Call<List<GetFitnes>> call = apiInterface.getFitnes();
+//
+//            call.enqueue(new Callback<List<GetFitnes>>() {
+//                @Override
+//                public void onResponse(Call<List<GetFitnes>> call, Response<List<GetFitnes>> response) {
+//
+//
+//
+//
+//                        //dapatkan hasil parsing dari method response.body()
+//                    List<GetFitnes> get = response.body();
+//                        String namaFitnes = response.body().
+//
+//
+//
+//                }
+//
+//                @Override
+//                public void onFailure(Call<List<GetFitnes>> call, Throwable t) {
+//
+//                }
+//
+//
+//            });
+//
+//        }
+
 
     private void getCurrentLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

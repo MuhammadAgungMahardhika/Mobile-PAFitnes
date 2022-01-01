@@ -70,7 +70,7 @@
             android:layout_weight="1"
             android:backgroundTint="#F8F7F7"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/home" />
+            app:srcCompat="@drawable/ic_outline_home_24" />
 
         <ImageButton
             android:id="@+id/arroundYouButton"
@@ -79,7 +79,7 @@
             android:layout_weight="1"
             android:backgroundTint="#FDFCFC"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/f5b2dab29c" />
+            app:srcCompat="@drawable/ic_outline_location_on_24" />
 
         <ImageButton
             android:id="@+id/profileButton"
@@ -88,7 +88,7 @@
             android:layout_weight="1"
             android:backgroundTint="#FDFCFC"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/user2" />
+            app:srcCompat="@drawable/ic_outline_account_circle_24" />
     </LinearLayout>
 
 
