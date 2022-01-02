@@ -17,11 +17,11 @@ public interface ApiInterface {
     Call<List<GetFitnes>> getFitnes(
     );
 
-
-
-    @FormUrlEncoded
-    @POST("book")
-    Call<PostResponseModel> PostBooking(@Field("nama") String nama, @Field("nomor") String nomor);
+//
+//
+//    @FormUrlEncoded
+//    @POST("book")
+//    Call<PostBooking> postBooking(@Field("id_fitnes") Integer id_fitnes, @Field("id_user") String id_user);
 //    @FormUrlEncoded
 //    @PUT("kontak")
 //    Call<PostPutDelKontak> putKontak(@Field("id") String id,

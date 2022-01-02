@@ -142,11 +142,7 @@
 <!--                    android:layout_height="wrap_content"-->
 <!--                    android:text="pick_date"-->
 <!--                    android:onClick="showDatePickerDialog" />-->
-<!--                <TextView-->
-<!--                    android:id="@+id/tanggal"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Tanggal" />-->
+
 
 
             </LinearLayout>
