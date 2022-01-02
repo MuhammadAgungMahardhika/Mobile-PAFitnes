@@ -2,6 +2,9 @@ package com.example.pafitness.Activity;
 
 import static android.os.Build.VERSION_CODES.O;
 
+import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.DialogFragment;
@@ -16,6 +19,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -31,7 +35,10 @@ import com.example.pafitness.Model.PostBooking;
 import com.example.pafitness.R;
 import com.example.pafitness.Rest.ApiClient;
 import com.example.pafitness.Rest.ApiInterface;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Calendar;
 import java.util.List;
@@ -49,7 +56,6 @@ public class DetailActivity extends AppCompatActivity {
 
     //id channel notification
     private static final String CHANNEL_ID = "com.pafitnes.herokuapp.CH01";
-
 
 
     @Override
@@ -102,6 +108,20 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+        //Firebase subscription
+        FirebaseMessaging.getInstance().subscribeToTopic("Update");
+
+        //Firebase token
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (task.isSuccessful()){
+                    String token = task.getResult();
+                    Log.d("fcm-token",token);
+
+                }
+            }
+        });
     }
 
     //membuat notification

@@ -20,8 +20,7 @@ import com.example.pafitness.Model.GetFitnes;
 import com.example.pafitness.R;
 import com.example.pafitness.Rest.ApiClient;
 import com.example.pafitness.Rest.ApiInterface;
-
-
+import com.google.firebase.messaging.FirebaseMessaging;
 
 
 import java.util.List;
@@ -145,6 +144,8 @@ public class HomeActivity extends AppCompatActivity {
 
 
         });
+
+
 
     }
 
