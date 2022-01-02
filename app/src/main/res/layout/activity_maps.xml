@@ -6,8 +6,8 @@
     android:id="@+id/linearLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAF6F6"
-    android:backgroundTint="#F6F3F3">
+    android:background="#D51C1C"
+    android:backgroundTint="#D51C1C">
 
     <TextView
         android:id="@+id/textView2"
@@ -16,7 +16,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-medium"
         android:text="Maps Around You"
-        android:textColor="#221F1F"
+        android:textColor="#FDFBFB"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
