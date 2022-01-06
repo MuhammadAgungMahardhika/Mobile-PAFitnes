@@ -2,7 +2,6 @@ package com.example.pafitness.Rest;
 
 import com.example.pafitness.Model.GetFitnes;
 import com.example.pafitness.Model.PostBooking;
-import com.example.pafitness.Model.PostResponseModel;
 
 import java.util.List;
 
@@ -16,12 +15,11 @@ public interface ApiInterface {
     @GET("data")
     Call<List<GetFitnes>> getFitnes(
     );
+    @POST("/book")
+    @FormUrlEncoded
+    Call<PostBooking> savePost(@Field("id_fitnes") long id_fitnes,
+                               @Field("id_user") String id_user);
 
-//
-//
-//    @FormUrlEncoded
-//    @POST("book")
-//    Call<PostBooking> postBooking(@Field("id_fitnes") Integer id_fitnes, @Field("id_user") String id_user);
 //    @FormUrlEncoded
 //    @PUT("kontak")
 //    Call<PostPutDelKontak> putKontak(@Field("id") String id,

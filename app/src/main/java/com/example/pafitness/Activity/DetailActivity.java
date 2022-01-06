@@ -1,17 +1,11 @@
 package com.example.pafitness.Activity;
 
-import static android.os.Build.VERSION_CODES.O;
-
 import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
-import androidx.fragment.app.DialogFragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -19,17 +13,17 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
+
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.pafitness.Model.GetFitnes;
 import com.example.pafitness.Model.PostBooking;
 import com.example.pafitness.R;
@@ -39,9 +33,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.messaging.FirebaseMessaging;
-
-import java.util.Calendar;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,16 +44,23 @@ public class DetailActivity extends AppCompatActivity {
     ImageView gambar_fitnes;
 //  public TextView tanggal;
     private Spinner spBulan;
+    private TextView mResponseTv;
+    private ApiInterface apiInterface;
+    FirebaseAuth mAuth;
+    String id_user;
 
     //id channel notification
     private static final String CHANNEL_ID = "com.pafitnes.herokuapp.CH01";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        //firebase
+        mAuth = FirebaseAuth.getInstance();
+
+        id_user = mAuth.getCurrentUser().getUid();
         //spinner bulan
         spBulan = findViewById(R.id.sp_bulan);
 
@@ -78,6 +76,10 @@ public class DetailActivity extends AppCompatActivity {
         GetFitnes model = getIntent().getParcelableExtra("GetFitnes");
         String gambar_fitness = model.getGambarFitnes();
 
+        //convert id to string
+        Integer id_Fitnes = model.getId();
+        String id_Fitnes_string =  id_Fitnes.toString();
+
         //convert harga perbulan to string
         Integer harga_tukar = model.getHargaPerbulan();
         String harga_perbulan_string =  harga_tukar.toString();
@@ -86,23 +88,32 @@ public class DetailActivity extends AppCompatActivity {
         Integer no_tukar = model.getNoFitnes();
         String no_fitnes_string = no_tukar.toString();
 
+
         nama_fitnes.setText(model.getNamaFitnes());
         alamat_fitnes.setText( model.getAlamatFitnes());
         fasilitas.setText(model.getFasilitas());
         harga_perbulan.setText("Price/Month -> Rp."+harga_perbulan_string);
         no_fitnes.setText("Contact Person -> +62 "+no_fitnes_string);
         jam_buka.setText("Operational time -> "+model.getJamBuka());
-
-//menambil gambar
+        //untuk booking
+         mResponseTv = (TextView) findViewById(R.id.tv_response);
+        //mengambil gambar
 
         Glide.with(this)
                 .load(gambar_fitness)
                 .into(gambar_fitnes);
 
+
+        //membuat object retrofit
+         apiInterface = ApiClient.getClient().create(ApiInterface.class);
+
         Button btBook = (Button) findViewById(R.id.button_book);
         btBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!TextUtils.isEmpty(id_Fitnes_string) && !TextUtils.isEmpty(id_user)) {
+                    PostBooking(id_Fitnes,id_user);
+                }
                 showNotification();
                 Toast.makeText(DetailActivity.this, "Selected "+ spBulan.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
             }
@@ -123,6 +134,35 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void PostBooking(Integer id_fitnes, String id_user) {
+        apiInterface.savePost(id_fitnes, id_user).enqueue(new Callback<PostBooking>() {
+            @Override
+            public void onResponse(Call<PostBooking> call, Response<PostBooking> response) {
+
+                if(response.isSuccessful()) {
+                    showResponse(response.body().toString());
+                    Log.i(TAG, "post submitted to API." + response.body().toString());
+                }else{
+                    Toast.makeText(DetailActivity.this, "Server is busy, please try again ", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PostBooking> call, Throwable t) {
+                Log.e(TAG, "Unable to submit post to API.");
+            }
+        });
+    }
+
+    public void showResponse(String response) {
+        if(mResponseTv.getVisibility() == View.GONE) {
+            mResponseTv.setVisibility(View.VISIBLE);
+        }
+        mResponseTv.setText("Successfull Booking The Class");
+    }
+
 
     //membuat notification
     private void showNotification() {
@@ -168,46 +208,6 @@ public class DetailActivity extends AppCompatActivity {
 
 
     }
-
-
-    //booking fitnes
-
-//    private void postBooking() {
-//        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-//
-//
-//        String userID = mAuth.getCurrentUser().getUid();
-//        Call<PostBooking> call = apiInterface.postBooking( idFitnes.getText().,userID);
-//
-//        call.enqueue(new Callback<PostBooking>() {
-//            @Override
-//            public void onResponse(Call<PostBooking> call, Response<PostBooking> response) {
-//                if (response.isSuccessful()){
-//                    Toast.makeText(DetailActivity.this, "Succesfull booking out ",
-//                            Toast.LENGTH_SHORT).show();
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<PostBooking> call, Throwable t) {
-//
-//            }
-//        });
-//
-//
-//
-//    }
-
-    // pilih tanggal fitnes
-
-//    public void showDatePickerDialog(View v) {
-//        DialogFragment newFragment = new DatePickerFragment();
-//        newFragment.show(getSupportFragmentManager(), "datePicker");
-//
-//
-//
-//    }
 
 
 }

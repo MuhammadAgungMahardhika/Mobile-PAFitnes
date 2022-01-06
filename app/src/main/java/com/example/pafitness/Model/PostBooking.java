@@ -1,27 +1,32 @@
 package com.example.pafitness.Model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class PostBooking {
-    private Integer id_fitnes;
-    private Integer id_user;
 
-    public PostBooking(Integer id_fitnes, Integer id_user) {
-        this.id_fitnes = id_fitnes;
-        this.id_user = id_user;
-    }
+        @SerializedName("id_fitnes")
+        @Expose
+        private Integer idFitnes;
+        @SerializedName("id_user")
+        @Expose
+        private String idUser;
 
-    public Integer getId_fitnes() {
-        return id_fitnes;
-    }
+        public Integer getIdFitnes() {
+            return idFitnes;
+        }
 
-    public void setId_fitnes(Integer id_fitnes) {
-        this.id_fitnes = id_fitnes;
-    }
+        public void setIdFitnes(Integer idFitnes) {
+            this.idFitnes = idFitnes;
+        }
 
-    public Integer getId_user() {
-        return id_user;
-    }
+        public String getIdUser() {
+            return idUser;
+        }
 
-    public void setId_user(Integer id_user) {
-        this.id_user = id_user;
-    }
+        public void setIdUser(String idUser) {
+            this.idUser = idUser;
+        }
+
+
 }
