@@ -124,9 +124,8 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(ProfileActivity.this,NotificationActivity.class);
                 ProfileActivity.this.startActivity(intent2);
                 return true;
-            case R.id.search:
 
-                return true;
+
             case R.id.button_class:
                 Intent intent3 = new Intent(ProfileActivity.this,NotificationActivity.class);
                 ProfileActivity.this.startActivity(intent3);

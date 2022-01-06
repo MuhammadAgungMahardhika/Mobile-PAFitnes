@@ -3,6 +3,7 @@ package com.example.pafitness.Activity;
 import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
@@ -10,6 +11,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -99,7 +101,7 @@ public class DetailActivity extends AppCompatActivity {
         no_fitnes.setText("+62 "+no_fitnes_string);
         jam_buka.setText(model.getJamBuka());
         //untuk booking
-         mResponseTv = (TextView) findViewById(R.id.tv_response);
+        mResponseTv = (TextView) findViewById(R.id.tv_response);
         //mengambil gambar
 
         Glide.with(this)
@@ -123,14 +125,29 @@ public class DetailActivity extends AppCompatActivity {
         //membuat object retrofit untuk booking
          apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
-
         Button btBook = (Button) findViewById(R.id.button_book);
         btBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!TextUtils.isEmpty(id_Fitnes_string) && !TextUtils.isEmpty(id_user)) {
-                    PostBooking(id_Fitnes,id_user);
-                }
+                new AlertDialog.Builder(DetailActivity.this)
+                        .setTitle("Booking Confirmation")
+                        .setMessage("Are you sure to book it?")
+                        .setPositiveButton("Accept", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(!TextUtils.isEmpty(id_Fitnes_string) && !TextUtils.isEmpty(id_user)) {
+                                    PostBooking(id_Fitnes,id_user);
+                                }
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(DetailActivity.this, "Canceled", Toast.LENGTH_LONG).show();
+                                dialog.cancel();
+                            }
+                        }).show();
+
 //                showNotification();
 //                Toast.makeText(DetailActivity.this, "Selected "+ spBulan.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
             }
@@ -140,7 +157,6 @@ public class DetailActivity extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic("Update");
 
     }
-
     public void PostBooking(Integer id_fitnes, String id_user) {
         apiInterface.savePost(id_fitnes, id_user).enqueue(new Callback<PostBooking>() {
             @Override
@@ -151,11 +167,9 @@ public class DetailActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     Intent intent2 = new Intent(DetailActivity.this, NotificationActivity.class);
                     DetailActivity.this.startActivity(intent2);
-
                 }
                 else{
                     Toast.makeText(DetailActivity.this, "Server is busy, please try again ", Toast.LENGTH_SHORT).show();
-
                 }
             }
 
@@ -172,6 +186,7 @@ public class DetailActivity extends AppCompatActivity {
         }
         mResponseTv.setText("Successfull Booking The Class");
     }
+
 
 
     //membuat notification
@@ -210,12 +225,10 @@ public class DetailActivity extends AppCompatActivity {
                 .setContentIntent(pendingNotificationIntent)
                 .addAction(R.drawable.ic_baseline_remove_red_eye_24,"Check",pendingNotificationIntent);
 
-
         Notification notification = builder.build();
 
         //tampilkan notifikasi
         notificationManager.notify(123,notification);
-
 
     }
 

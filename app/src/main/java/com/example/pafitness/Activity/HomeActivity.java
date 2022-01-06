@@ -1,5 +1,7 @@
 package com.example.pafitness.Activity;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,8 +12,12 @@ import android.widget.ProgressBar;
 import android.widget.SearchView;
 
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,8 +26,6 @@ import com.example.pafitness.Model.GetFitnes;
 import com.example.pafitness.R;
 import com.example.pafitness.Rest.ApiClient;
 import com.example.pafitness.Rest.ApiInterface;
-import com.google.firebase.messaging.FirebaseMessaging;
-
 
 import java.util.List;
 import java.util.Timer;
@@ -31,17 +35,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity  {
 
     RecyclerView recyclerView;
     Adapter adapter;
-    private SearchView searchView;
+    private ApiInterface apiInterface;
+
     RecyclerView.LayoutManager layoutManager;
      ProgressBar pb;
      int counter = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home);
 
         //set progres bar
@@ -130,10 +136,6 @@ public class HomeActivity extends AppCompatActivity {
                     adapter = new Adapter(HomeActivity.this, get);
                     recyclerView.setAdapter(adapter);
 
-                    return;
-
-                }else{
-
                 }
             }
 
@@ -156,20 +158,62 @@ public class HomeActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+
+    @SuppressLint("NonConstantResourceId")
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.buttonNotification:
                 Intent intent2 = new Intent(HomeActivity.this,NotificationActivity.class);
                 HomeActivity.this.startActivity(intent2);
                 return true;
-            case R.id.search:
 
-                return true;
             case R.id.button_class:
                 Intent intent3 = new Intent(HomeActivity.this,NotificationActivity.class);
                 HomeActivity.this.startActivity(intent3);
+
+                return true;
+
+            case R.id.action_search:
+//
+//                SearchView searchView = (SearchView) findViewById(R.id.action_search);
+//
+//              searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//                  @Override
+//                  public boolean onQueryTextSubmit(String query) {
+//                      return false;
+//                  }
+//
+//                  @Override
+//                  public boolean onQueryTextChange(String newText) {
+//
+//
+//                      //membuat object retrofit untuk booking
+//                      apiInterface = ApiClient.getClient().create(ApiInterface.class);
+//                      Call<List<GetFitnes>> call = apiInterface.search(newText);
+//
+//                      call.enqueue(new Callback<List<GetFitnes>>() {
+//                          @Override
+//                          public void onResponse(Call<List<GetFitnes>> call, Response<List<GetFitnes>> response) {
+//                              if (response.isSuccessful()){
+//                                  List<GetFitnes> gets = response.body();
+//                                  adapter = new Adapter(HomeActivity.this, gets);
+//                                  recyclerView.setAdapter(adapter);
+//
+//                              }
+//                          }
+//
+//                          @Override
+//                          public void onFailure(Call<List<GetFitnes>> call, Throwable t) {
+//
+//                          }
+//
+//                      });
+//                      return true;
+//                  }
+//              });
 
                 return true;
 
@@ -177,4 +221,6 @@ public class HomeActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }
+
