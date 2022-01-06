@@ -34,6 +34,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,10 +62,11 @@ public class DetailActivity extends AppCompatActivity {
         //firebase
         mAuth = FirebaseAuth.getInstance();
 
-        id_user = mAuth.getCurrentUser().getUid();
+        id_user = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         //spinner bulan
         spBulan = findViewById(R.id.sp_bulan);
 
+        //detail info
         nama_fitnes = findViewById(R.id.text_judul);
         alamat_fitnes = findViewById(R.id.text_alamat);
         fasilitas = findViewById(R.id.text_fasilitas);
@@ -92,9 +95,9 @@ public class DetailActivity extends AppCompatActivity {
         nama_fitnes.setText(model.getNamaFitnes());
         alamat_fitnes.setText( model.getAlamatFitnes());
         fasilitas.setText(model.getFasilitas());
-        harga_perbulan.setText("Price/Month -> Rp."+harga_perbulan_string);
-        no_fitnes.setText("Contact Person -> +62 "+no_fitnes_string);
-        jam_buka.setText("Operational time -> "+model.getJamBuka());
+        harga_perbulan.setText(harga_perbulan_string +" IDR");
+        no_fitnes.setText("+62 "+no_fitnes_string);
+        jam_buka.setText(model.getJamBuka());
         //untuk booking
          mResponseTv = (TextView) findViewById(R.id.tv_response);
         //mengambil gambar
@@ -103,24 +106,6 @@ public class DetailActivity extends AppCompatActivity {
                 .load(gambar_fitness)
                 .into(gambar_fitnes);
 
-
-        //membuat object retrofit
-         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-
-        Button btBook = (Button) findViewById(R.id.button_book);
-        btBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!TextUtils.isEmpty(id_Fitnes_string) && !TextUtils.isEmpty(id_user)) {
-                    PostBooking(id_Fitnes,id_user);
-                }
-                showNotification();
-                Toast.makeText(DetailActivity.this, "Selected "+ spBulan.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        //Firebase subscription
-        FirebaseMessaging.getInstance().subscribeToTopic("Update");
 
         //Firebase token
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
@@ -133,6 +118,27 @@ public class DetailActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        //membuat object retrofit untuk booking
+         apiInterface = ApiClient.getClient().create(ApiInterface.class);
+
+
+        Button btBook = (Button) findViewById(R.id.button_book);
+        btBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!TextUtils.isEmpty(id_Fitnes_string) && !TextUtils.isEmpty(id_user)) {
+                    PostBooking(id_Fitnes,id_user);
+                }
+//                showNotification();
+//                Toast.makeText(DetailActivity.this, "Selected "+ spBulan.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Firebase subscription
+        FirebaseMessaging.getInstance().subscribeToTopic("Update");
+
     }
 
     public void PostBooking(Integer id_fitnes, String id_user) {
@@ -141,9 +147,13 @@ public class DetailActivity extends AppCompatActivity {
             public void onResponse(Call<PostBooking> call, Response<PostBooking> response) {
 
                 if(response.isSuccessful()) {
-                    showResponse(response.body().toString());
-                    Log.i(TAG, "post submitted to API." + response.body().toString());
-                }else{
+                    Toast.makeText(DetailActivity.this, "Success Booking Class",
+                            Toast.LENGTH_SHORT).show();
+                    Intent intent2 = new Intent(DetailActivity.this, NotificationActivity.class);
+                    DetailActivity.this.startActivity(intent2);
+
+                }
+                else{
                     Toast.makeText(DetailActivity.this, "Server is busy, please try again ", Toast.LENGTH_SHORT).show();
 
                 }

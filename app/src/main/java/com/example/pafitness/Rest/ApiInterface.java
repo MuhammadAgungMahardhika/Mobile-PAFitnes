@@ -15,7 +15,7 @@ public interface ApiInterface {
     @GET("data")
     Call<List<GetFitnes>> getFitnes(
     );
-    @POST("/book")
+    @POST("/bookFitnes")
     @FormUrlEncoded
     Call<PostBooking> savePost(@Field("id_fitnes") long id_fitnes,
                                @Field("id_user") String id_user);
