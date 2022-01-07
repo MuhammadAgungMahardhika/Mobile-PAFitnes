@@ -165,7 +165,7 @@ public class DetailActivity extends AppCompatActivity {
                 if(response.isSuccessful()) {
                     Toast.makeText(DetailActivity.this, "Success Booking Class",
                             Toast.LENGTH_SHORT).show();
-                    Intent intent2 = new Intent(DetailActivity.this, NotificationActivity.class);
+                    Intent intent2 = new Intent(DetailActivity.this, ClassActivity.class);
                     DetailActivity.this.startActivity(intent2);
                 }
                 else{
