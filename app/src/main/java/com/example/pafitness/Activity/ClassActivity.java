@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ProgressBar;
 
 import com.example.pafitness.Adapter.Adapter;
 import com.example.pafitness.Adapter.AdapterClass;
@@ -17,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,12 +30,17 @@ public class ClassActivity extends AppCompatActivity {
     private ApiInterface apiInterface;
     RecyclerView.LayoutManager layoutManager;
     AdapterClass adapterClass;
+    ProgressBar pb;
+    int counter = 0;
     FirebaseAuth mAuth;
     String id_user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class);
+
+        //set progres bar
+        probar();
 
         //firebase
         mAuth = FirebaseAuth.getInstance();
@@ -49,6 +57,25 @@ public class ClassActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         callRetrofit();
 
+    }
+
+    private void probar() {
+        pb = (ProgressBar) findViewById(R.id.pb2);
+
+        final Timer t = new Timer();
+        TimerTask tt = new TimerTask() {
+            @Override
+            public void run() {
+                counter++;
+                pb.setProgress(counter);
+                if (counter==100)
+                    t.cancel();
+
+
+
+            }
+        };
+        t.schedule(tt,0,100);
     }
 
     //menghubungi server
