@@ -40,7 +40,6 @@ public class HomeActivity extends AppCompatActivity  {
     RecyclerView recyclerView;
     Adapter adapter;
     private ApiInterface apiInterface;
-
     RecyclerView.LayoutManager layoutManager;
      ProgressBar pb;
      int counter = 0;
@@ -171,7 +170,7 @@ public class HomeActivity extends AppCompatActivity  {
                 return true;
 
             case R.id.button_class:
-                Intent intent3 = new Intent(HomeActivity.this,NotificationActivity.class);
+                Intent intent3 = new Intent(HomeActivity.this,ClassActivity.class);
                 HomeActivity.this.startActivity(intent3);
 
                 return true;

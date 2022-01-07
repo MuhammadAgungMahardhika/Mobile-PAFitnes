@@ -1,5 +1,6 @@
 package com.example.pafitness.Rest;
 
+import com.example.pafitness.Model.GetBookingClass;
 import com.example.pafitness.Model.GetFitnes;
 import com.example.pafitness.Model.PostBooking;
 
@@ -11,6 +12,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 
 public interface ApiInterface {
@@ -18,14 +20,17 @@ public interface ApiInterface {
     Call<List<GetFitnes>> getFitnes(
     );
 
-    @FormUrlEncoded
-    @POST("search")
-    Call<List<GetFitnes>> search(@Field("query") String query);
+    @GET("getClass")
+    Call<List<GetBookingClass>> getBookingClass(
+            @Query("id_user") String id_user
+    );
+
 
     @POST("/bookFitnes")
     @FormUrlEncoded
     Call<PostBooking> savePost(@Field("id_fitnes") long id_fitnes,
-                               @Field("id_user") String id_user);
+                               @Field("id_user") String id_user,
+                               @Field("tanggal_booking") String tanggal_booking);
 
 //    @FormUrlEncoded
 //    @PUT("kontak")

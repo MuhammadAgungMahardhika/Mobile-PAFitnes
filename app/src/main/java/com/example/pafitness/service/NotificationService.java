@@ -19,7 +19,6 @@ public class NotificationService extends FirebaseMessagingService {
     //id channel notification
     private static final String CHANNEL_ID = "com.pafitnes.herokuapp.CH01";
 
-
 //    my fcm token
 //    fBElW_ghTvyjShkwd7F_ao:APA91bH1qgpIpus2O-6WNfL10EXQesd3zhlddw6x0jc58IhDqeJULwPMG9BUWE-ChtI_MeByyxTccMyt-7KbeglQvzHhak4tRk9E6p2h_bzIylgSdk7otzyziblhdsEVz8jmkNMtYXEL
     @Override

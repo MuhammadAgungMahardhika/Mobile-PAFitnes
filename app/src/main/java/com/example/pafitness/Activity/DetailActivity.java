@@ -52,6 +52,8 @@ public class DetailActivity extends AppCompatActivity {
     private ApiInterface apiInterface;
     FirebaseAuth mAuth;
     String id_user;
+    String bulan;
+
 
     //id channel notification
     private static final String CHANNEL_ID = "com.pafitnes.herokuapp.CH01";
@@ -92,8 +94,6 @@ public class DetailActivity extends AppCompatActivity {
         //convert no fitnes
         Integer no_tukar = model.getNoFitnes();
         String no_fitnes_string = no_tukar.toString();
-
-
         nama_fitnes.setText(model.getNamaFitnes());
         alamat_fitnes.setText( model.getAlamatFitnes());
         fasilitas.setText(model.getFasilitas());
@@ -102,12 +102,12 @@ public class DetailActivity extends AppCompatActivity {
         jam_buka.setText(model.getJamBuka());
         //untuk booking
         mResponseTv = (TextView) findViewById(R.id.tv_response);
-        //mengambil gambar
 
+
+        //mengambil gambar
         Glide.with(this)
                 .load(gambar_fitness)
                 .into(gambar_fitnes);
-
 
         //Firebase token
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
@@ -129,14 +129,15 @@ public class DetailActivity extends AppCompatActivity {
         btBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                bulan = (String) spBulan.getSelectedItem();
                 new AlertDialog.Builder(DetailActivity.this)
                         .setTitle("Booking Confirmation")
                         .setMessage("Are you sure to book it?")
                         .setPositiveButton("Accept", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                if(!TextUtils.isEmpty(id_Fitnes_string) && !TextUtils.isEmpty(id_user)) {
-                                    PostBooking(id_Fitnes,id_user);
+                                if(!TextUtils.isEmpty(id_Fitnes_string) && !TextUtils.isEmpty(id_user) ) {
+                                    PostBooking(id_Fitnes,id_user,bulan);
                                 }
                             }
                         })
@@ -149,7 +150,7 @@ public class DetailActivity extends AppCompatActivity {
                         }).show();
 
 //                showNotification();
-//                Toast.makeText(DetailActivity.this, "Selected "+ spBulan.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(DetailActivity.this, "Selected "+ bulan, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -157,8 +158,8 @@ public class DetailActivity extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic("Update");
 
     }
-    public void PostBooking(Integer id_fitnes, String id_user) {
-        apiInterface.savePost(id_fitnes, id_user).enqueue(new Callback<PostBooking>() {
+    public void PostBooking(Integer id_fitnes, String id_user ,String tanggal_booking) {
+        apiInterface.savePost(id_fitnes, id_user,tanggal_booking).enqueue(new Callback<PostBooking>() {
             @Override
             public void onResponse(Call<PostBooking> call, Response<PostBooking> response) {
 
@@ -194,7 +195,6 @@ public class DetailActivity extends AppCompatActivity {
         //Ambil objeck notification
         NotificationManager notificationManager = (NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE);
-
 
         //buat channel
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ){

@@ -11,6 +11,9 @@ public class PostBooking {
         @SerializedName("id_user")
         @Expose
         private String idUser;
+        @SerializedName("tanggal_booking")
+        @Expose
+        private String tanggalBooking;
 
         public Integer getIdFitnes() {
             return idFitnes;
@@ -27,6 +30,14 @@ public class PostBooking {
         public void setIdUser(String idUser) {
             this.idUser = idUser;
         }
+
+    public String getTanggalBooking() {
+        return tanggalBooking;
+    }
+
+    public void setTanggalBooking(String tanggalBooking) {
+        this.tanggalBooking = tanggalBooking;
+    }
 
 
 }
