@@ -40,7 +40,7 @@ public class ClassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_class);
 
         //set progres bar
-        probar();
+//        probar();
 
         //firebase
         mAuth = FirebaseAuth.getInstance();
@@ -90,6 +90,7 @@ public class ClassActivity extends AppCompatActivity {
             public void onResponse(Call<List<GetBookingClass>> call, Response<List<GetBookingClass>> response) {
 
                 if (response.isSuccessful()){
+
                     List<GetBookingClass> gets = response.body();
                     adapterClass = new AdapterClass(ClassActivity.this,gets);
                     recyclerView.setAdapter(adapterClass);
