@@ -8,7 +8,7 @@
     android:background="#FDFCFC">
 
     <TextView
-        android:id="@+id/myClass"
+        android:id="@+id/myclass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
