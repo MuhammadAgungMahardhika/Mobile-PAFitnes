@@ -2,6 +2,7 @@ package com.example.pafitness.Rest;
 
 import com.example.pafitness.Model.GetBookingClass;
 import com.example.pafitness.Model.GetFitnes;
+import com.example.pafitness.Model.GetLocation;
 import com.example.pafitness.Model.PostBooking;
 
 import java.util.List;
@@ -23,6 +24,10 @@ public interface ApiInterface {
     @GET("getClass")
     Call<List<GetBookingClass>> getBookingClass(
             @Query("id_user") String id_user
+    );
+
+    @GET("locationFitnes")
+    Call<List<GetLocation>> getLocation(
     );
 
 

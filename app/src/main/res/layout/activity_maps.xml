@@ -6,8 +6,8 @@
     android:id="@+id/linearLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D51C1C"
-    android:backgroundTint="#D51C1C">
+    android:background="#F86868"
+    android:backgroundTint="#F44848">
 
     <TextView
         android:id="@+id/textView2"
@@ -32,49 +32,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout9"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:context=".Activity.MapsActivity" />
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout9"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/homeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="#F8F7F7"
-            android:contentDescription="TODO"
-            app:srcCompat="@drawable/home" />
-
-        <ImageButton
-            android:id="@+id/arroundYouButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="#FDFCFC"
-            android:contentDescription="TODO"
-            app:srcCompat="@drawable/f5b2dab29c" />
-
-        <ImageButton
-            android:id="@+id/profileButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="#FDFCFC"
-            android:contentDescription="TODO"
-            app:srcCompat="@drawable/user2" />
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

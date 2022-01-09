@@ -13,7 +13,9 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.pafitness.Adapter.Adapter;
+import com.example.pafitness.Model.GetBookingClass;
 import com.example.pafitness.Model.GetFitnes;
+import com.example.pafitness.Model.GetLocation;
 import com.example.pafitness.R;
 import com.example.pafitness.Rest.ApiClient;
 import com.example.pafitness.Rest.ApiInterface;
@@ -42,7 +44,7 @@ public class MapsActivity extends FragmentActivity {
     private ActivityMapsBinding binding;
     private SupportMapFragment mapFragment;
     private FusedLocationProviderClient client;
-    ArrayList<GetFitnes> fitnes;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,41 +66,6 @@ public class MapsActivity extends FragmentActivity {
         }
 
 
-        //Home intent
-        ImageButton home = (ImageButton) findViewById(R.id.homeButton);
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MapsActivity.this, HomeActivity.class);
-                MapsActivity.this.startActivity(intent2);
-
-            }
-        });
-
-        //Arroundyou intent
-        ImageButton arroundYou = (ImageButton) findViewById(R.id.arroundYouButton);
-
-        arroundYou.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MapsActivity.this, MapsActivity.class);
-                MapsActivity.this.startActivity(intent2);
-
-            }
-        });
-
-        //Profile intent
-        ImageButton profile = (ImageButton) findViewById(R.id.profileButton);
-
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MapsActivity.this, ProfileActivity.class);
-                MapsActivity.this.startActivity(intent2);
-
-            }
-        });
     }
 
 //    private void getMap() {
@@ -106,25 +73,24 @@ public class MapsActivity extends FragmentActivity {
 //            //membuat object retrofit
 //            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
 //
-//            Call<List<GetFitnes>> call = apiInterface.getFitnes();
+//            Call<List<GetLocation>> call = apiInterface.getLocation();
 //
-//            call.enqueue(new Callback<List<GetFitnes>>() {
+//            call.enqueue(new Callback<List<GetLocation>>() {
 //                @Override
-//                public void onResponse(Call<List<GetFitnes>> call, Response<List<GetFitnes>> response) {
+//                public void onResponse(Call<List<GetLocation>> call, Response<List<GetLocation>> response) {
+//             //dapatkan hasil parsing dari method response.body()
+//                    if (response.isSuccessful()){
 //
+//                        List<GetLocation> get = response.body();
 //
-//
-//
-//                        //dapatkan hasil parsing dari method response.body()
-//                    List<GetFitnes> get = response.body();
-//                        String namaFitnes = response.body().
+//                    }
 //
 //
 //
 //                }
 //
 //                @Override
-//                public void onFailure(Call<List<GetFitnes>> call, Throwable t) {
+//                public void onFailure(Call<List<GetLocation>> call, Throwable t) {
 //
 //                }
 //
@@ -147,17 +113,28 @@ public class MapsActivity extends FragmentActivity {
                     mapFragment.getMapAsync(new OnMapReadyCallback() {
                         @Override
                         public void onMapReady(GoogleMap googleMap) {
+
                             LatLng latlng = new LatLng(location.getLatitude(), location.getLongitude());
                             MarkerOptions options = new MarkerOptions().position(latlng).title("Your Location");
 
-                            LatLng sydney = new LatLng(-33.852, 151.211);
-                            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 11));
                             googleMap.addMarker(options);
 
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 11));
+                            //1
+                            LatLng Gsport = new LatLng(-0.911293, 100.3624588);
+                            googleMap.addMarker(new MarkerOptions().position(Gsport).title("G Sport Center Gym"));
+
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Gsport, 11));
                             googleMap.addMarker(options);
+
+                            //2
+                            LatLng sydney = new LatLng(-0.911293, 100.3624588);
+                            googleMap.addMarker(new MarkerOptions().position(sydney).title("G Sport Center Gym"));
+
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 11));
+                            googleMap.addMarker(options);
+
+
 
                         }
                     });

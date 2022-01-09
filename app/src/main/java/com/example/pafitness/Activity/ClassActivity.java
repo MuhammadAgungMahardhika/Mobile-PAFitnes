@@ -38,9 +38,9 @@ public class ClassActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class);
-
+        pb = (ProgressBar) findViewById(R.id.pb2);
         //set progres bar
-//        probar();
+        probar();
 
         //firebase
         mAuth = FirebaseAuth.getInstance();
