@@ -38,15 +38,14 @@ public class ClassActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class);
-        pb = (ProgressBar) findViewById(R.id.pb2);
+//        pb = (ProgressBar) findViewById(R.id.pb2);
         //set progres bar
-        probar();
+//        probar();
 
         //firebase
         mAuth = FirebaseAuth.getInstance();
 
         id_user = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-
 
         //Retrofit Recycler View
 
@@ -59,24 +58,24 @@ public class ClassActivity extends AppCompatActivity {
 
     }
 
-    private void probar() {
-        pb = (ProgressBar) findViewById(R.id.pb2);
-
-        final Timer t = new Timer();
-        TimerTask tt = new TimerTask() {
-            @Override
-            public void run() {
-                counter++;
-                pb.setProgress(counter);
-                if (counter==100)
-                    t.cancel();
-
-
-
-            }
-        };
-        t.schedule(tt,0,100);
-    }
+//    private void probar() {
+//        pb = (ProgressBar) findViewById(R.id.pb2);
+//
+//        final Timer t = new Timer();
+//        TimerTask tt = new TimerTask() {
+//            @Override
+//            public void run() {
+//                counter++;
+//                pb.setProgress(counter);
+//                if (counter==100)
+//                    t.cancel();
+//
+//
+//
+//            }
+//        };
+//        t.schedule(tt,0,100);
+//    }
 
     //menghubungi server
     private void callRetrofit() {

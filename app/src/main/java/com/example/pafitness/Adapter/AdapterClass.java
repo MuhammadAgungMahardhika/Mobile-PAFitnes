@@ -47,11 +47,15 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.AdapterHolde
         String nama_fitnes = getBookingClass.getNamaFitnes();
         String alamatFitnes = getBookingClass.getAlamatFitnes();
         Integer harga_perbulan = getBookingClass.getHargaPerbulan();
+        String harga_string = harga_perbulan.toString();
         String tanggal_booking = getBookingClass.getTanggalBooking();
 
         holder.nama_fitnes.setText(nama_fitnes);
         holder.alamat_fitnes.setText(alamatFitnes);
+        holder.harga_perbulan.setText(harga_string);
         holder.tanggal_booking.setText(tanggal_booking);
+
+
 
 
 
