@@ -57,8 +57,6 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.AdapterHolde
 
 
 
-
-
     }
 
     @Override

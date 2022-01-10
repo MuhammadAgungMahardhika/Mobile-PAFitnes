@@ -93,6 +93,10 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent2 = new Intent(ProfileActivity.this,EditprofileActivity.class);
+               intent2.putExtra("email",email.getText().toString());
+                intent2.putExtra("fname",fname.getText().toString());
+                intent2.putExtra("phone",mobilephone.getText().toString());
+
                 ProfileActivity.this.startActivity(intent2);
 
             }
@@ -127,7 +131,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
             case R.id.button_class:
-                Intent intent3 = new Intent(ProfileActivity.this,NotificationActivity.class);
+                Intent intent3 = new Intent(ProfileActivity.this,ClassActivity.class);
                 ProfileActivity.this.startActivity(intent3);
 
                 return true;
