@@ -10,7 +10,7 @@
         android:id="@+id/gender2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="10dp"
         android:text="Profile"
         android:textColor="#000000"
         android:textSize="30sp"
@@ -20,24 +20,16 @@
 
     <ImageView
         android:id="@+id/imageView_profile"
-        android:layout_width="78dp"
-        android:layout_height="86dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="170dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="170dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/gender2"
         app:srcCompat="@drawable/ellipse_7" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/editemail3"

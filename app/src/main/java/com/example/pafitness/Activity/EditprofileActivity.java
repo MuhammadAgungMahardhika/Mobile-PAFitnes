@@ -23,6 +23,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +39,7 @@ public class EditprofileActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     FirebaseUser User;
+    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,16 @@ public class EditprofileActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         User = fAuth.getCurrentUser();
+        storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference profileref = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"profile.jpg");
+        profileref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(@NonNull Uri uri) {
+
+                Picasso.get().load(uri).into(profileimage);
+
+            }
+        });
 
         Intent data = getIntent();
         String email = data.getStringExtra("email");
@@ -105,7 +120,6 @@ public class EditprofileActivity extends AppCompatActivity {
                                 finish();
                             }
                         });
-                        Toast.makeText(getApplicationContext(),"Email is changed", Toast.LENGTH_LONG).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -132,10 +146,38 @@ public class EditprofileActivity extends AppCompatActivity {
         if (requestCode==1000){
             if (resultCode == Activity.RESULT_OK){
                 Uri ImageUri = data.getData();
-                profileimage.setImageURI(ImageUri);
+//   profileimage.setImageURI(ImageUri);
+
+                uploadImageToFirebase(ImageUri);
+
 
             }
 
         }
+    }
+
+    private void uploadImageToFirebase(Uri imageUri) {
+        StorageReference fileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"profile.jpg");
+
+        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(@NonNull Uri uri) {
+                        Picasso.get().load(uri).into(profileimage);
+                    }
+                });
+//            Toast.makeText(EditprofileActivity.this,"Image Uploaded", Toast.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(EditprofileActivity.this,"Failed", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
     }
 }
