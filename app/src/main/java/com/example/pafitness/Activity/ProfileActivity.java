@@ -1,13 +1,17 @@
 package com.example.pafitness.Activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-        import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 public class ProfileActivity extends AppCompatActivity {
 
     TextView email ,fname ,mobilephone;
+
     String userID;
     FirebaseFirestore db;
     FirebaseAuth mAuth;
@@ -33,6 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
         mobilephone = findViewById(R.id.Edit_mobile);
         email = findViewById(R.id.editemail3);
         fname = findViewById(R.id.Edit_fullname);
+
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -92,6 +98,8 @@ public class ProfileActivity extends AppCompatActivity {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 Intent intent2 = new Intent(ProfileActivity.this,EditprofileActivity.class);
                intent2.putExtra("email",email.getText().toString());
                 intent2.putExtra("fname",fname.getText().toString());
@@ -113,6 +121,8 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     // MENU HOME
     @Override

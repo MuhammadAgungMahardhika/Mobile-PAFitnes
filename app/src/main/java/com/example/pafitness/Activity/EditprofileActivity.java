@@ -1,14 +1,19 @@
 package com.example.pafitness.Activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pafitness.R;
@@ -26,7 +31,7 @@ public class EditprofileActivity extends AppCompatActivity {
 
     public static final String TAG = "TAG";
     EditText editEmail,editNama,editPhone;
-
+    ImageView profileimage;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     FirebaseUser User;
@@ -44,9 +49,11 @@ public class EditprofileActivity extends AppCompatActivity {
         String fullname = data.getStringExtra("fname");
         String phone = data.getStringExtra("phone");
 
+        profileimage = findViewById(R.id.imageView);
         editEmail = findViewById(R.id.editemail3);
         editNama = findViewById(R.id.Edit_fullname);
         editPhone = findViewById(R.id.Edit_mobile);
+
 
         editEmail.setText(email);
         editNama.setText(fullname);
@@ -55,6 +62,17 @@ public class EditprofileActivity extends AppCompatActivity {
         Log.d("em",email);
         //EditProfile intent
         Button editProfile = (Button) findViewById(R.id.button4);
+
+
+
+        profileimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openGalerryIntent = new Intent(Intent.ACTION_PICK,
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(openGalerryIntent,1000);
+            }
+        });
 
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,5 +124,18 @@ public class EditprofileActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==1000){
+            if (resultCode == Activity.RESULT_OK){
+                Uri ImageUri = data.getData();
+                profileimage.setImageURI(ImageUri);
+
+            }
+
+        }
     }
 }
