@@ -1,7 +1,5 @@
 package com.example.pafitness.Activity;
 
-import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,18 +8,36 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pafitness.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class EditprofileActivity extends AppCompatActivity {
 
     public static final String TAG = "TAG";
     EditText editEmail,editNama,editPhone;
+
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    FirebaseUser User;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editprofile);
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        User = fAuth.getCurrentUser();
 
         Intent data = getIntent();
         String email = data.getStringExtra("email");
@@ -43,9 +59,50 @@ public class EditprofileActivity extends AppCompatActivity {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"SUCCESS", Toast.LENGTH_LONG).show();
-                Intent intent2 = new Intent(EditprofileActivity.this,ProfileActivity.class);
-                EditprofileActivity.this.startActivity(intent2);
+
+                if (editEmail.getText().toString().isEmpty()||
+                        editNama.getText().toString().isEmpty()||
+                editPhone.getText().toString().isEmpty()){
+
+                Toast.makeText(getApplicationContext(),"data empty", Toast.LENGTH_LONG).show();
+               return;
+                }
+                final String email = editEmail.getText().toString();
+                User.updateEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(@NonNull Void unused) {
+                        DocumentReference docRef = fStore.collection("users").
+                                document(User.getUid());
+
+                        Map<String,Object> edited = new HashMap<>();
+                        edited.put("email",email);
+                        edited.put("fName",editNama.getText().toString());
+                        edited.put("phone",editPhone.getText().toString());
+                        docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(@NonNull Void unused) {
+                                Toast.makeText(getApplicationContext(),
+                                        "Profile Updated", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                                finish();
+                            }
+                        });
+                        Toast.makeText(getApplicationContext(),"Email is changed", Toast.LENGTH_LONG).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(EditprofileActivity.this,e.getMessage(),
+                                Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+
+
+//                Toast.makeText(getApplicationContext(),"SUCCESS", Toast.LENGTH_LONG).show();
+//                Intent intent2 = new Intent(EditprofileActivity.this,ProfileActivity.class);
+//                EditprofileActivity.this.startActivity(intent2);
 
             }
         });
