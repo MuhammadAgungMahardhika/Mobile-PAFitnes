@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        //semoga bisa
+        //semoga bisaa
         //forget password intent
         mAuth = FirebaseAuth.getInstance();
         TextView forgetpassword = (TextView) findViewById(R.id.textView9);
