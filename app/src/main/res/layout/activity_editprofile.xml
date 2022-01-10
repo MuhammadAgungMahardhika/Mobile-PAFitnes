@@ -4,7 +4,7 @@
     android:id="@+id/linearLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFEFE">
+    android:background="#FFFFFF">
 
     <ImageView
         android:id="@+id/imageView"
@@ -53,15 +53,15 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="#000000"
         android:backgroundTintMode="src_in"
         android:ems="10"
-        android:inputType="textEmailAddress"
         android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColorLink="#FF03DAC5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/Edit_fullname"
@@ -70,11 +70,12 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="#000000"
         android:backgroundTintMode="src_in"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Your FullName"
+        android:inputType="textPersonName"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColorLink="#FF03DAC5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editemail3" />
@@ -86,11 +87,12 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="#000000"
         android:backgroundTintMode="src_in"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Your Mobile Phone"
+        android:inputType="textPersonName"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColorLink="#FF03DAC5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Edit_fullname" />

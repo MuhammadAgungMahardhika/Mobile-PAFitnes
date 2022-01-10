@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
 
-    android:background="#FBF1F1">
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/gender2"
@@ -43,7 +43,7 @@
 
         android:layout_marginTop="40dp"
         android:layout_marginEnd="45dp"
-        android:background="#EFE5E5"
+        android:background="#F4F1F1"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="45dp"
-        android:background="#EFE5E5"
+        android:background="#F4F1F1"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.61"
@@ -111,7 +111,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="45dp"
-        android:background="#EFE5E5"
+        android:background="#F4F1F1"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,7 +142,7 @@
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="#000000"
         android:backgroundTintMode="src_in"
         android:clickable="true"
