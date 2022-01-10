@@ -2,6 +2,12 @@
     <string name="app_name">PAFitness</string>
     <string name="title_activity_arround">ArroundActivity</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="class_name">Class Name</string>
+    <string name="date">Date</string>
+    <string name="status">status</string>
+    <string name="harga">harga</string>
+    <string name="price">Price</string>
+    <string name="statuss">Statuss</string>
     <string-array name="bulan">
         <item>January</item>
         <item>February</item>
