@@ -4,13 +4,15 @@
     android:id="@+id/linearLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBFBFB">
+
+
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/gender2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="10dp"
         android:text="Profile"
         android:textColor="#000000"
         android:textSize="30sp"
@@ -20,90 +22,137 @@
 
     <ImageView
         android:id="@+id/imageView_profile"
-        android:layout_width="78dp"
-        android:layout_height="86dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="170dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="170dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/gender2"
         app:srcCompat="@drawable/ellipse_7" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/editemail3"
-        android:layout_width="0dp"
+    <LinearLayout
+
+        android:id="@+id/profile_linear1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+
+        android:layout_marginStart="45dp"
+
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="#000000"
-        android:backgroundTintMode="src_in"
-        android:ems="10"
-        android:text="E-mail"
-        android:textAlignment="center"
+        android:layout_marginEnd="45dp"
+        android:background="#F4F1F1"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_profile"
-        tools:text="E-mail" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_profile">
 
-    <TextView
-        android:id="@+id/Edit_fullname"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="#000000"
-        android:backgroundTintMode="src_in"
-        android:ems="10"
-        android:text="Fullname"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editemail3" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:drawableStart="@drawable/ic_baseline_email_24" />
 
-    <TextView
-        android:id="@+id/Edit_mobile"
-        android:layout_width="0dp"
+        <TextView
+            android:id="@+id/editemail3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000"
+            android:backgroundTintMode="src_in"
+            android:ems="10"
+            android:text="E-mail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_profile"
+            tools:text="E-mail" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/profile_linear2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="45dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="#000000"
-        android:backgroundTintMode="src_in"
-        android:ems="10"
-        android:text="Mobile phone"
-        android:textAlignment="center"
+        android:layout_marginEnd="45dp"
+        android:background="#F4F1F1"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_linear1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:drawableStart="@drawable/ic_baseline_drive_file_rename_outline_24" />
+
+        <TextView
+            android:id="@+id/Edit_fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000"
+            android:backgroundTintMode="src_in"
+            android:ems="10"
+            android:text="Fullname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_linear1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/profile_linear3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="45dp"
+        android:background="#F4F1F1"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Edit_fullname" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_linear2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:drawableStart="@drawable/ic_baseline_phone_24" />
+
+        <TextView
+            android:id="@+id/Edit_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000"
+            android:backgroundTintMode="src_in"
+            android:ems="10"
+            android:text="Mobile phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_linear2" />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="#000000"
         android:backgroundTintMode="src_in"
         android:clickable="true"
         android:ems="10"
-        android:minHeight="48dp"
         android:text="Log out"
         android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Edit_mobile" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_linear3" />
 
     <Button
         android:id="@+id/button4"
@@ -121,6 +170,7 @@
         android:id="@+id/linearLayout9"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="#FBFAFA"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

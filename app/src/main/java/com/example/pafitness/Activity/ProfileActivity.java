@@ -13,24 +13,34 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pafitness.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class ProfileActivity extends AppCompatActivity {
 
     TextView email ,fname ,mobilephone;
-
+    ImageView profileimage;
     String userID;
     FirebaseFirestore db;
     FirebaseAuth mAuth;
+
+
+    FirebaseUser User;
+    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +49,23 @@ public class ProfileActivity extends AppCompatActivity {
         email = findViewById(R.id.editemail3);
         fname = findViewById(R.id.Edit_fullname);
 
-
+        profileimage = findViewById(R.id.imageView_profile);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+        User = mAuth.getCurrentUser();
+        storageReference = FirebaseStorage.getInstance().getReference();
+
         userID = mAuth.getCurrentUser().getUid();
+        StorageReference profileref = storageReference.child("users/"+mAuth.getCurrentUser().getUid()+"profile.jpg");
+        profileref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(@NonNull Uri uri) {
+
+                Picasso.get().load(uri).into(profileimage);
+
+            }
+        });
 
         DocumentReference documentReference = db.collection("users").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
