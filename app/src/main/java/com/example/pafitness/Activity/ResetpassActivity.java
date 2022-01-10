@@ -22,8 +22,7 @@ public class ResetpassActivity extends AppCompatActivity {
         resetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"PASSWORD HAVE BEEN RESET", Toast.LENGTH_LONG).show();
-                Intent intent2 = new Intent(ResetpassActivity.this,NewpassActivity.class);
+                Intent intent2 = new Intent(ResetpassActivity.this,LoginActivity.class);
                 ResetpassActivity.this.startActivity(intent2);
             }
         });
