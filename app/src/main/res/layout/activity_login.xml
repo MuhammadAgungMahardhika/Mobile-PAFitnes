@@ -9,6 +9,7 @@
     android:paddingTop="100dp"
     tools:context=".Activity.LoginActivity">
 
+    //bisa
     <EditText
         android:id="@+id/editUsername"
         android:layout_width="310dp"
