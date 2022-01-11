@@ -175,7 +175,7 @@ public class HomeActivity extends AppCompatActivity  {
 
                 return true;
 
-            case R.id.action_search:
+//            case R.id.action_search:
 //
 //                SearchView searchView = (SearchView) findViewById(R.id.action_search);
 //
@@ -214,7 +214,7 @@ public class HomeActivity extends AppCompatActivity  {
 //                  }
 //              });
 
-                return true;
+//                return true;
 
             default:
                 return super.onOptionsItemSelected(item);

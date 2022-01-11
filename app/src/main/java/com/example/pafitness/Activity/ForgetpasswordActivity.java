@@ -30,21 +30,28 @@ public class ForgetpasswordActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String mail = userEmail.getText().toString();
-                mAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(@NonNull Void unused) {
-                        Toast.makeText(ForgetpasswordActivity.this, "Reset Link Was Sent To Your Email", Toast.LENGTH_SHORT).show();
-                        Intent intent2 = new Intent(ForgetpasswordActivity.this, ResetpassActivity.class);
-                        ForgetpasswordActivity.this.startActivity(intent2);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ForgetpasswordActivity.this, "Error! Reset Link is Not Sent" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                if(mail.isEmpty()){
+                    Toast.makeText(ForgetpasswordActivity.this, "Enter your email!",
+                            Toast.LENGTH_SHORT).show();
+                    return;
 
-                    }
-                });
+                }else {
+                    mAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(@NonNull Void unused) {
+                            Toast.makeText(ForgetpasswordActivity.this, "Reset Link Was Sent To Your Email", Toast.LENGTH_SHORT).show();
+                            Intent intent2 = new Intent(ForgetpasswordActivity.this, ResetpassActivity.class);
+                            ForgetpasswordActivity.this.startActivity(intent2);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ForgetpasswordActivity.this, "Error! Reset Link is Not Sent" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
+                        }
+                    });
+
+                }
 
             }
         });
