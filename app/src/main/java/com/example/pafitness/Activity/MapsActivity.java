@@ -11,6 +11,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.pafitness.Model.GetLocation;
 import com.example.pafitness.R;
@@ -99,15 +100,13 @@ public class MapsActivity extends FragmentActivity {
                                     if (response.isSuccessful()){
                                         for (GetLocation getLocation:response.body()){
                                             String nama_fitnes = getLocation.getNamaFitnes();
-                                            String alamat_fitnes = getLocation.getAlamatFitnes();
                                             String jam_buka = getLocation.getJamBuka();
                                             String lat = getLocation.getLat();
                                             String lng = getLocation.getLng();
 
-                                            LatLng Koordinat = new LatLng( Double.parseDouble(lat),  Double.parseDouble(lng));
+                                            LatLng Koordinat = new LatLng( Double.parseDouble(lat),Double.parseDouble(lng));
                                             googleMap.addMarker(new MarkerOptions().position(Koordinat).
-                                                    title(nama_fitnes).snippet(alamat_fitnes).
-                                                    snippet(jam_buka));
+                                                    title(nama_fitnes).snippet(jam_buka));
 
                                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Koordinat, 11));
                                             googleMap.addMarker(options);
@@ -117,11 +116,11 @@ public class MapsActivity extends FragmentActivity {
                                     }
 
 
-
                                 }
 
                                 @Override
                                 public void onFailure(Call<List<GetLocation>> call, Throwable t) {
+                                    Toast.makeText(MapsActivity.this, "Failed to load map" + t.getMessage(), Toast.LENGTH_SHORT).show();
 
                                 }
 

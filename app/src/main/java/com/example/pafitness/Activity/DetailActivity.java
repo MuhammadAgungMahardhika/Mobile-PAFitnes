@@ -84,16 +84,16 @@ public class DetailActivity extends AppCompatActivity {
         String gambar_fitness = model.getGambarFitnes();
 
         //convert id to string
-        Integer id_Fitnes = model.getId();
-        String id_Fitnes_string =  id_Fitnes.toString();
+        int id_Fitnes = model.getId();
+        String id_Fitnes_string = Integer.toString(id_Fitnes);
 
         //convert harga perbulan to string
-        Integer harga_tukar = model.getHargaPerbulan();
-        String harga_perbulan_string =  harga_tukar.toString();
+        int harga_tukar = model.getHargaPerbulan();
+        String harga_perbulan_string = Integer.toString(harga_tukar);
 
         //convert no fitnes
-        Integer no_tukar = model.getNoFitnes();
-        String no_fitnes_string = no_tukar.toString();
+        int no_tukar = model.getNoFitnes();
+        String no_fitnes_string = Integer.toString(no_tukar);
         nama_fitnes.setText(model.getNamaFitnes());
         alamat_fitnes.setText( model.getAlamatFitnes());
         fasilitas.setText(model.getFasilitas());
@@ -149,7 +149,6 @@ public class DetailActivity extends AppCompatActivity {
                             }
                         }).show();
 
-//                showNotification();
 //                Toast.makeText(DetailActivity.this, "Selected "+ bulan, Toast.LENGTH_SHORT).show();
             }
         });
@@ -164,6 +163,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onResponse(Call<PostBooking> call, Response<PostBooking> response) {
 
                 if(response.isSuccessful()) {
+                    showNotification();
                     Toast.makeText(DetailActivity.this, "Success Booking Class",
                             Toast.LENGTH_SHORT).show();
                     Intent intent2 = new Intent(DetailActivity.this, ClassActivity.class);
@@ -176,7 +176,7 @@ public class DetailActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<PostBooking> call, Throwable t) {
-                Log.e(TAG, "Unable to submit post to API.");
+                Log.e(TAG, "Booking failed");
             }
         });
     }
