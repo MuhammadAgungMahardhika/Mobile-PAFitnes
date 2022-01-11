@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -17,7 +17,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Edit_profile"
-        app:srcCompat="@drawable/ellipse_7" />
+        app:srcCompat="@drawable/ellipse_7"
+        app:civ_border_color="#CAC2C2"
+        app:civ_border_width="6dp"
+        app:civ_shadow="true"
+        app:civ_shadow_color="#D52E21"
+        app:civ_shadow_radius="10"/>
 
     <TextView
         android:id="@+id/Edit_profile"
